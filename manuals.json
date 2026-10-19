@@ -1,0 +1,53 @@
+{
+  "note": "The four public equipment manuals used by the AI Tech Magic operator-assistant demo. The PDFs are vendor documents and are not committed here; download them from source_url. pdf_pages counts PDF page positions including covers. sha256 and bytes are of the PDF file as bundled in the demo.",
+  "manuals": [
+    {
+      "id": "mig-welder",
+      "title": "MIG welder manual",
+      "vendor": "Titanium",
+      "model": "MIG140 / MIG170 (Harbor Freight items 57863 / 57864)",
+      "source_url": "https://manuals.harborfreight.com/manuals/57000-57999/57863-193175447005.pdf",
+      "demo_file_name": "mig_welder.pdf",
+      "pdf_pages": 36,
+      "printed_page_offset": 0,
+      "sha256": "e9b4eb183889e57ef55600f742cf89368a75e2c0a3e840ae5b4759ffff56a421",
+      "bytes": 4721997
+    },
+    {
+      "id": "air-compressor",
+      "title": "Air compressor manual",
+      "vendor": "Central Pneumatic",
+      "model": "3 gal oilless pancake compressor (Harbor Freight item 61615)",
+      "source_url": "https://manuals.harborfreight.com/manuals/61000-61999/61615-792363616157.pdf",
+      "demo_file_name": "air_compressor.pdf",
+      "pdf_pages": 16,
+      "printed_page_offset": 0,
+      "sha256": "35da8f83b33f0dfc51dcd90ac64d1c5f360be00ccd5c944efc27ebb8d5a12fad",
+      "bytes": 1667514
+    },
+    {
+      "id": "mini-lathe",
+      "title": "Metal lathe manual",
+      "vendor": "Central Machinery",
+      "model": "7\" x 12\" mini lathe (Harbor Freight item 93799)",
+      "source_url": "https://manuals.harborfreight.com/manuals/93000-93999/93799-792363937993.pdf",
+      "demo_file_name": "mini_lathe.pdf",
+      "pdf_pages": 24,
+      "printed_page_offset": 0,
+      "sha256": "d7759e4c43906ff5eb208d19c1430bb5dde8eb6e65d933ddc5f50fae3ec8d848",
+      "bytes": 2812071
+    },
+    {
+      "id": "pallet-truck",
+      "title": "Electric pallet truck manual",
+      "vendor": "Blue Giant",
+      "model": "EPJ-30 electric power pallet truck",
+      "source_url": "https://static.globalindustrial.com/products/pdf/66692-blue-giant-equipment-corp/B1121801M2.pdf",
+      "demo_file_name": "pallet_truck.pdf",
+      "pdf_pages": 24,
+      "printed_page_offset": 2,
+      "sha256": "611c242a2df9a8bd9eaf9042d48d232e475b81ea4251d94158ab19544176e331",
+      "bytes": 1388876
+    }
+  ]
+}
