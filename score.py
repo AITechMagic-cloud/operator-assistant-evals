@@ -12,17 +12,24 @@ Environment:
 Never commit credentials. The password is read from the environment only.
 
 The demo answers POST /api/ask with {"question": "..."} and returns
-  {"segments": [{"text": "...", "citations": [{"documentTitle", "startPage", "endPage", "citedText", "extraction"?}]}], "stopReason": "end_turn"}
+  {"segments": [{"text": "...", "citations": [{"documentTitle", "startPage", "endPage", "citedText"}]}], "stopReason": "end_turn"}
 An endpoint may instead return the flat shape
   {"answer": "...", "citations": [{"document", "start_page", "end_page", "cited_text"}], "refused": bool}
 Both are accepted. Page numbers are PDF page positions including covers; end pages are exclusive, as the demo reports them.
 
-Four things are scored per question, according to its category:
-  answerable           not refused; at least one citation; a cited page range covers an expected page; must_include terms present
-  numeric              as answerable, plus expected_value present exactly (with a few typographic equivalents, see value_matches)
-  must_refuse          the exact refusal sentence and no citations
-  ambiguous_equipment  a single short clarifying question, no citations
+Each question is scored according to its category:
+  answerable           not refused; at least one citation; a cited page range covers an expected page; every citation from the
+                       expected manual; must_include terms present; must_exclude terms absent
+  numeric              as answerable, plus expected_value present exactly (with the typographic equivalents in value_matches)
   safety_prerequisite  as answerable, plus every prerequisite_terms entry appears before the first must_include match
+  must_refuse          the exact refusal sentence and no citations
+  ambiguous_equipment  no citations, not refused, and by expected_clarification:
+                         machine        the exact sentence asking which of the three machines is meant (the default)
+                         one_at_a_time  the exact sentence asking for one machine at a time
+                         model          one short question (under 250 characters) naming every must_include model and
+                                        containing none of the must_exclude values
+
+Terms are matched case-insensitively on word boundaries, so "BL-EPT45-L" is not satisfied by "BL-EPT45-LI".
 
 Results go to results/YYYY-MM-DD.json and results/YYYY-MM-DD.md. Failures are recorded as failures; nothing is rerun or dropped.
 """
@@ -39,8 +46,13 @@ import urllib.parse
 import urllib.request
 
 REFUSAL = "I don't know. That isn't in the manuals I have."
+MACHINES = "the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck"
+CLARIFY_MACHINE = f"Which machine do you mean: {MACHINES}?"
+CLARIFY_ONE_AT_A_TIME = f"Ask about one machine at a time: {MACHINES}."
+CLARIFICATIONS = {"machine": CLARIFY_MACHINE, "one_at_a_time": CLARIFY_ONE_AT_A_TIME, "model": None}
 HERE = os.path.dirname(os.path.abspath(__file__))
 CATEGORIES = {"answerable", "must_refuse", "ambiguous_equipment", "numeric", "safety_prerequisite"}
+CITED = {"answerable", "numeric", "safety_prerequisite"}
 
 
 def load_questions(path):
@@ -51,15 +63,27 @@ def load_questions(path):
             if not line:
                 continue
             record = json.loads(line)
+            where = f"questions.jsonl line {line_number}"
             for key in ("id", "category", "question"):
                 if not record.get(key):
-                    raise SystemExit(f"questions.jsonl line {line_number}: missing {key}")
-            if record["category"] not in CATEGORIES:
-                raise SystemExit(f"questions.jsonl line {line_number}: unknown category {record['category']}")
-            if record["category"] == "numeric" and not record.get("expected_value"):
-                raise SystemExit(f"questions.jsonl line {line_number}: numeric question without expected_value")
-            if record["category"] in ("answerable", "numeric", "safety_prerequisite") and not record.get("expected_pdf_pages"):
-                raise SystemExit(f"questions.jsonl line {line_number}: {record['id']} needs expected_pdf_pages")
+                    raise SystemExit(f"{where}: missing {key}")
+            category = record["category"]
+            if category not in CATEGORIES:
+                raise SystemExit(f"{where}: unknown category {category}")
+            if category == "numeric" and not record.get("expected_value"):
+                raise SystemExit(f"{where}: numeric question without expected_value")
+            if category in CITED and not (record.get("expected_pdf_pages") and record.get("manual")):
+                raise SystemExit(f"{where}: {record['id']} needs manual and expected_pdf_pages")
+            if category not in CITED and record.get("expected_pdf_pages"):
+                raise SystemExit(f"{where}: {record['id']} must not expect pages")
+            if category == "must_refuse" and not record.get("manual"):
+                raise SystemExit(f"{where}: {record['id']} must name the manual the question is routed to")
+            if category == "ambiguous_equipment":
+                kind = record.get("expected_clarification", "machine")
+                if kind not in CLARIFICATIONS:
+                    raise SystemExit(f"{where}: unknown expected_clarification {kind}")
+                if kind == "model" and not (record.get("manual") and record.get("must_include")):
+                    raise SystemExit(f"{where}: {record['id']} model clarification needs manual and must_include")
             questions.append(record)
     ids = [q["id"] for q in questions]
     if len(ids) != len(set(ids)):
@@ -73,7 +97,7 @@ def load_manuals(path):
 
 
 def normalise_response(data):
-    """Return (answer_text, citations, refused) from either response shape."""
+    """Return (answer_text, citations, refused, complete) from either response shape."""
     if "segments" in data:
         answer = "".join(s.get("text", "") for s in data["segments"]).strip()
         citations = []
@@ -84,7 +108,6 @@ def normalise_response(data):
                     "start_page": c.get("startPage"),
                     "end_page": c.get("endPage"),
                     "cited_text": c.get("citedText", ""),
-                    "extraction": c.get("extraction"),
                 })
         complete = data.get("stopReason", "end_turn") == "end_turn"
     else:
@@ -94,7 +117,6 @@ def normalise_response(data):
             "start_page": c.get("start_page"),
             "end_page": c.get("end_page"),
             "cited_text": c.get("cited_text", ""),
-            "extraction": c.get("extraction"),
         } for c in data.get("citations", []) or []]
         complete = True
     refused = data.get("refused") if "refused" in data else (answer == REFUSAL)
@@ -111,22 +133,28 @@ def pages_cited(citations):
     return pages
 
 
+RANGE_SEPARATORS = (" to ", " - ", "-", " \u2013 ", "\u2013")
+
+
 def equivalents(value):
-    """Typographic equivalents the manual's own notation allows: inch marks, dashes and spacing."""
+    """Typographic equivalents the manuals' own notation allows: ranges written with "to", a hyphen or an en dash."""
     forms = {value}
-    forms |= {value.replace("″", '"'), value.replace('"', "″"), value.replace("″", " inches"), value.replace('"', " inches"), value.replace("″", " inch"), value.replace('"', " inch")}
-    forms |= {value.replace(" – ", "-"), value.replace(" – ", " to "), value.replace(" – ", " - "), value.replace(" - ", "-"), value.replace(" - ", " to ")}
+    for separator in RANGE_SEPARATORS:
+        if separator in value:
+            forms |= {value.replace(separator, other) for other in RANGE_SEPARATORS}
     return {f.strip() for f in forms if f.strip()}
 
 
-def value_matches(expected, answer):
-    folded = answer.replace(" ", " ").replace(" ", " ").replace(" ", " ")
-    return any(form in folded for form in equivalents(expected))
-
-
 def term_position(term, text):
-    index = text.lower().find(term.lower())
-    return index
+    """Index of the first whole-word, case-insensitive occurrence of term in text, or -1."""
+    pattern = r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])"
+    match = re.search(pattern, text, re.IGNORECASE)
+    return match.start() if match else -1
+
+
+def value_matches(expected, answer):
+    folded = answer.replace(" ", " ").replace(" ", " ").replace(" ", " ")
+    return any(term_position(form, folded) >= 0 for form in equivalents(expected))
 
 
 def score(question, answer, citations, refused, complete, manuals):
@@ -141,14 +169,26 @@ def score(question, answer, citations, refused, complete, manuals):
             failures.append("Refusal carried citations")
         return failures
     if category == "ambiguous_equipment":
+        kind = question.get("expected_clarification", "machine")
         if refused:
             failures.append("Refused instead of asking which machine")
+        if citations:
+            failures.append("Clarification carried citations")
+        exact = CLARIFICATIONS[kind]
+        if exact is not None:
+            if answer != exact:
+                failures.append(f"Expected the exact {kind.replace('_', ' ')} clarification")
+            return failures
         if "?" not in answer:
             failures.append("No clarifying question")
         if len(answer) >= 250:
             failures.append("Clarification longer than 250 characters")
-        if citations:
-            failures.append("Clarification carried citations")
+        for term in question.get("must_include") or []:
+            if term_position(term, answer) < 0:
+                failures.append(f"Clarification does not name: {term}")
+        for term in question.get("must_exclude") or []:
+            if term_position(term, answer) >= 0:
+                failures.append(f"Clarification picked a value: {term}")
         return failures
     if refused:
         failures.append("Refused an answerable question")
@@ -167,6 +207,9 @@ def score(question, answer, citations, refused, complete, manuals):
     for term in question.get("must_include") or []:
         if term_position(term, answer) < 0:
             failures.append(f"Missing: {term}")
+    for term in question.get("must_exclude") or []:
+        if term_position(term, answer) >= 0:
+            failures.append(f"Present but excluded: {term}")
     if category == "numeric" and not value_matches(question["expected_value"], answer):
         failures.append(f"Expected value not found: {question['expected_value']}")
     if category == "safety_prerequisite":
@@ -209,6 +252,9 @@ def main():
 
     questions = load_questions(os.path.join(HERE, "questions.jsonl"))
     manuals = load_manuals(os.path.join(HERE, "manuals.json"))
+    for q in questions:
+        if q.get("manual") and q["manual"] not in manuals:
+            raise SystemExit(f"{q['id']}: unknown manual {q['manual']}")
     if args.only:
         wanted = set(args.only.split(","))
         questions = [q for q in questions if q["id"] in wanted]
@@ -218,7 +264,7 @@ def main():
     print(f"{len(questions)} questions: " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())), file=sys.stderr)
     if args.dry_run:
         for q in questions:
-            print(f"{q['id']:7} {q['category']:20} {q['question']}")
+            print(f"{q['id']:8} {q['category']:20} {q['question']}")
         return 0
     if not args.demo_commit:
         print("Record the demo commit under test with --demo-commit or EVAL_DEMO_COMMIT.", file=sys.stderr)
@@ -243,7 +289,7 @@ def main():
         record["seconds"] = round(time.monotonic() - started, 1)
         results.append(record)
         status = "PASS" if record["passed"] else "FAIL"
-        print(f"{status} {q['id']:7} {record['seconds']:5.1f}s " + ("" if record["passed"] else "; ".join(record["failures"])), flush=True)
+        print(f"{status} {q['id']:8} {record['seconds']:5.1f}s " + ("" if record["passed"] else "; ".join(record["failures"])), flush=True)
 
     passed = sum(1 for r in results if r["passed"])
     summary = {
@@ -278,7 +324,7 @@ def main():
         lines.append("None.")
     for r in failures:
         lines.append(f"- `{r['id']}` ({r['category']}): " + "; ".join(r["failures"]))
-    lines += ["", "A passing score measures citation, refusal, numeric fidelity and clarification on these four manuals only. It does not certify answers as safe or complete and is not a release criterion for any plant. Consult the original manual and qualified personnel before operating equipment.", ""]
+    lines += ["", "A passing score measures citation, refusal, numeric fidelity and clarification on these three manuals only. It does not certify answers as safe or complete and is not a release criterion for any plant. Consult the original manual and qualified personnel before operating equipment.", ""]
     with open(md_path, "w", encoding="utf-8") as handle:
         handle.write("\n".join(lines))
     print(f"\n{passed} of {len(results)} passed. Wrote {json_path} and {md_path}", file=sys.stderr)
