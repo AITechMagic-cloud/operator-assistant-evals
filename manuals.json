@@ -1,0 +1,47 @@
+{
+  "note": "The three equipment manuals used by the AI Tech Magic operator-assistant demo. They are original fictional demonstration documents written by AI Tech Magic for a manufacturer that does not exist, Brennvik Industrial Equipment. The PDFs are not committed here; the demo serves them at demo_url without a password. pdf_pages counts PDF page positions including the cover; the printed page number equals the PDF position on all three. sha256 and bytes are of the PDF file as bundled in the demo.",
+  "manuals": [
+    {
+      "id": "arcline-215",
+      "title": "ArcLine 215 welder manual",
+      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "model": "ArcLine 215 MIG / flux-cored welder",
+      "document_number": "BIE-OM-2150 Rev. C",
+      "variants": ["BW-215", "BW-215DV"],
+      "demo_file_name": "arcline_215.pdf",
+      "demo_url": "https://demo.aitechmagic.com/manuals/arcline_215.pdf",
+      "pdf_pages": 44,
+      "printed_page_offset": 0,
+      "sha256": "8ae77e4ce3567ae9cfc138c10c32b8de7a009a4275587df71214e2d7dda64d4d",
+      "bytes": 205797
+    },
+    {
+      "id": "airline-c60",
+      "title": "AirLine C60 compressor manual",
+      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "model": "AirLine C60 two-stage 60 gal compressor",
+      "document_number": "BIE-OM-6060 Rev. B",
+      "variants": ["BA-C60-1", "BA-C60-3"],
+      "demo_file_name": "airline_c60.pdf",
+      "demo_url": "https://demo.aitechmagic.com/manuals/airline_c60.pdf",
+      "pdf_pages": 41,
+      "printed_page_offset": 0,
+      "sha256": "6dd53476f956e922fe6b26c24523ed15b3ef1006ca185663445788d87f255697",
+      "bytes": 197126
+    },
+    {
+      "id": "liftline-ept45",
+      "title": "LiftLine EPT-45 pallet truck manual",
+      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "model": "LiftLine EPT-45 electric pallet truck",
+      "document_number": "BIE-OM-4545 Rev. A",
+      "variants": ["BL-EPT45-L", "BL-EPT45-LI"],
+      "demo_file_name": "liftline_ept45.pdf",
+      "demo_url": "https://demo.aitechmagic.com/manuals/liftline_ept45.pdf",
+      "pdf_pages": 41,
+      "printed_page_offset": 0,
+      "sha256": "184ec644c9de61b518c57f865ea765658a8530598985fd6c50a4f7939fc881ed",
+      "bytes": 201594
+    }
+  ]
+}
