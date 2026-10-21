@@ -19,7 +19,7 @@ Questions fall into five categories:
 |---|---:|---|
 | `answerable` | 16 | not refused, cited page matches, every citation from the expected manual, required terms present |
 | `numeric` | 29 | as answerable, plus the exact value from the manual |
-| `safety_prerequisite` | 9 | as answerable, plus every stated prerequisite appears before the steps |
+| `safety_prerequisite` | 9 | as answerable, plus every stated prerequisite appears before the second numbered step, in a warning above the list or in step 1 |
 | `ambiguous_equipment` | 9 | the expected clarification, no citations (see below) |
 | `must_refuse` | 8 | the exact refusal sentence, no citations |
 
@@ -27,7 +27,7 @@ The clarification cases come in three kinds, set by `expected_clarification`:
 
 - `machine`: no machine is named. The demo answers with one exact sentence asking which of the three machines is meant. This includes a question about another brand with no Brennvik machine named; the demo does not guess which manual might be closest.
 - `one_at_a_time`: two machines are named. Each request carries one manual, so the demo answers with one exact sentence asking for one machine at a time.
-- `model`: one machine is named, but the manual gives the value or procedure separately by model (the compressor's breaker size, the pallet truck's charging procedure, the welder's breaker by input voltage). The assistant must ask one short question that names every model in `must_include` and contains none of the values in `must_exclude`.
+- `model`: one machine is named, but the manual gives the value or procedure separately by model (the compressor's breaker size, the pallet truck's charging procedure, the welder's breaker by input voltage). The assistant must ask one short question that names every model in `must_include` and contains none of the values in `must_exclude`. It may cite the table it is asking about; the two exact sentences above carry no citations.
 
 Every `must_refuse` question names one Brennvik machine, so the request reaches the model with that manual attached. The questions ask for things the manual does not contain, for another brand, or for a model that does not exist in the manual.
 
@@ -50,6 +50,8 @@ python score.py                                     # runs against https://demo.
 python score.py --endpoint http://localhost:3000    # a local demo instead
 python score.py --only air-01,ref-01                # a subset
 ```
+
+The first run, 21 October 2026 against demo commit `e249db4`, passed 66 of 71. Its five failures were the scorer's rules, not the demo's answers: a receptacle question that also demanded the circuit rating, two correct procedures marked down because a warning above the list contained a listed term, a model clarification that cited the table it asked about, and a clarification that named a charger part number while describing the models. The rules were adjusted afterwards as described above; the 21 October files stand as produced and the next run is a new dated file.
 
 The scorer logs in once with the password, then posts each question to `/api/ask` and scores the reply. The demo sets a secure session cookie, so a password-gated endpoint must be reached over HTTPS; for a local copy of the demo over plain HTTP, run it with `DEMO_PASSWORD` empty, which disables the gate, and leave `EVAL_PASSWORD` unset. It writes `results/YYYY-MM-DD.json` with every answer, citation and failure reason, and `results/YYYY-MM-DD.md` with the counts and the failures. A run is published as it happened. Failed items stay in the file and the run is not repeated until it passes.
 

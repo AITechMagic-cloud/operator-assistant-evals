@@ -21,13 +21,14 @@ Each question is scored according to its category:
   answerable           not refused; at least one citation; a cited page range covers an expected page; every citation from the
                        expected manual; must_include terms present; must_exclude terms absent
   numeric              as answerable, plus expected_value present exactly (with the typographic equivalents in value_matches)
-  safety_prerequisite  as answerable, plus every prerequisite_terms entry appears before the first must_include match
+  safety_prerequisite  as answerable, plus every prerequisite_terms entry appears before the second numbered step (in a
+                       warning above the list or in step 1), or before the first must_include match when there is no list
   must_refuse          the exact refusal sentence and no citations
-  ambiguous_equipment  no citations, not refused, and by expected_clarification:
-                         machine        the exact sentence asking which of the three machines is meant (the default)
-                         one_at_a_time  the exact sentence asking for one machine at a time
+  ambiguous_equipment  not refused, and by expected_clarification:
+                         machine        the exact sentence asking which of the three machines is meant (the default), no citations
+                         one_at_a_time  the exact sentence asking for one machine at a time, no citations
                          model          one short question (under 250 characters) naming every must_include model and
-                                        containing none of the must_exclude values
+                                        containing none of the must_exclude values; it may cite the table it refers to
 
 Terms are matched case-insensitively on word boundaries, so "BL-EPT45-L" is not satisfied by "BL-EPT45-LI".
 
@@ -172,9 +173,9 @@ def score(question, answer, citations, refused, complete, manuals):
         kind = question.get("expected_clarification", "machine")
         if refused:
             failures.append("Refused instead of asking which machine")
-        if citations:
-            failures.append("Clarification carried citations")
         exact = CLARIFICATIONS[kind]
+        if citations and exact is not None:
+            failures.append("Clarification carried citations")
         if exact is not None:
             if answer != exact:
                 failures.append(f"Expected the exact {kind.replace('_', ' ')} clarification")
@@ -213,15 +214,30 @@ def score(question, answer, citations, refused, complete, manuals):
     if category == "numeric" and not value_matches(question["expected_value"], answer):
         failures.append(f"Expected value not found: {question['expected_value']}")
     if category == "safety_prerequisite":
-        steps = [term_position(t, answer) for t in (question.get("must_include") or [])]
-        first_step = min([p for p in steps if p >= 0], default=None)
+        limit = steps_limit(answer, question.get("must_include") or [])
         for term in question.get("prerequisite_terms") or []:
             position = term_position(term, answer)
             if position < 0:
                 failures.append(f"Missing prerequisite: {term}")
-            elif first_step is not None and position > first_step:
+            elif limit is not None and position > limit:
                 failures.append(f"Prerequisite after the steps: {term}")
     return failures
+
+
+def steps_limit(answer, must_include):
+    """Position a prerequisite must not come after.
+
+    When the answer has a numbered list, a prerequisite may sit anywhere before the second step: in a
+    warning above the list or in step 1, which is where the manuals themselves put "switch off" and
+    "lock out". Without a numbered list, it must come before the first must_include term.
+    """
+    numbered = [m.start() for m in re.finditer(r"(?<![\d.])\d{1,2}\.\s", answer)]
+    if len(numbered) >= 2:
+        return numbered[1]
+    if numbered:
+        return len(answer)
+    positions = [term_position(t, answer) for t in must_include]
+    return min([p for p in positions if p >= 0], default=None)
 
 
 class Client:

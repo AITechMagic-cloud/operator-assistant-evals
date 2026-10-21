@@ -83,6 +83,19 @@ class ScoreTests(unittest.TestCase):
         missing = demo_response("1. Reduce tank pressure to below 10 psi. 2. Open the drain valve slowly. Wear eye protection. 3. Leave it open until water stops flowing.", [cite(18)])
         self.assertIn("Missing prerequisite: lever to O", self.run_case("air-01", missing))
 
+    def test_prerequisite_may_sit_in_a_warning_above_the_list_or_in_step_one(self):
+        warning_first = demo_response("WARNING: With the brake released, the truck can roll freely. Do not release the brake on a grade.\n\nFirst, lock out the truck by disconnecting the battery.\n\n1. Insert two M5 screws into the brake release holes.\n2. Push the truck slowly.\n3. Remove the screws immediately afterward. Do not tow the truck.", [cite(19, LIFT)])
+        self.assertEqual(self.run_case("lift-11", warning_first), [])
+        in_step_one = demo_response("NOTICE Use only the BL-CHG-LI100 charger.\n\n1. Park the truck in the charging area and turn the key to OFF.\n2. Connect the BL-CHG-LI100 charger plug to the blue SB175 charging connector.\n3. Charging from 20% to 100% takes about 2.5 hours.", [cite(22, LIFT)])
+        self.assertEqual(self.run_case("lift-02", in_step_one), [])
+        in_step_two = demo_response("1. Connect the BL-CHG-LI100 charger plug to the blue SB175 charging connector.\n2. Turn the key to OFF.\n3. Charging from 20% to 100% takes about 2.5 hours.", [cite(22, LIFT)])
+        self.assertIn("Prerequisite after the steps: key to OFF", self.run_case("lift-02", in_step_two))
+
+    def test_model_clarification_may_cite_but_exact_sentences_may_not(self):
+        cited = demo_response("Table 4-1 lists the breaker separately by model and supply. Which applies: BA-C60-1 230 V, BA-C60-3 208 V, BA-C60-3 230 V, or BA-C60-3 460 V?", [cite(14)])
+        self.assertEqual(self.run_case("amb-07", cited), [])
+        self.assertIn("Clarification carried citations", self.run_case("amb-05", demo_response(score.CLARIFY_ONE_AT_A_TIME, [cite(14)])))
+
     def test_wrong_manual_is_a_failure(self):
         failures = self.run_case("air-02", demo_response("145 psi / 175 psi", [cite(8, ARC)]))
         self.assertTrue(any(f.startswith("Citations from another manual") for f in failures))
