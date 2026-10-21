@@ -1,0 +1,2009 @@
+{
+  "date": "2026-10-21",
+  "endpoint": "https://demo.aitechmagic.com",
+  "demo_commit": "e249db4",
+  "questions": 71,
+  "passed": 66,
+  "by_category": {
+    "ambiguous_equipment": {
+      "passed": 7,
+      "total": 9
+    },
+    "answerable": {
+      "passed": 16,
+      "total": 16
+    },
+    "must_refuse": {
+      "passed": 8,
+      "total": 8
+    },
+    "numeric": {
+      "passed": 28,
+      "total": 29
+    },
+    "safety_prerequisite": {
+      "passed": 7,
+      "total": 9
+    }
+  },
+  "results": [
+    {
+      "id": "air-01",
+      "category": "safety_prerequisite",
+      "manual": "airline-c60",
+      "question": "How do I drain the AirLine C60 tank?",
+      "answer": "1. Set the pressure switch lever to O.\n2. Reduce tank pressure to below 10 psi (0.7 bar) by using air or opening the outlet valve to a safe discharge point.\n3. Open the drain valve slowly. Wear eye protection. Condensate may discharge with force.\n4. Leave the valve open until water stops flowing, then close it.\n5. Dispose of condensate according to local regulations. Condensate contains oil and must not be poured into storm drains.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "1 Set the pressure switch lever to O.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "2 Reduce tank pressure to below 10 psi (0.7 bar) by using air or opening the outlet valve to a safe discharge point.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "3 Open the drain valve slowly. Wear eye protection. Condensate may discharge with force.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "4 Leave the valve open until water stops flowing, then close it.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "5 Dispose of condensate according to local regulations. Condensate contains oil and must not be poured into storm\r\ndrains.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 13.1
+    },
+    {
+      "id": "air-02",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "What are the cut-in and cut-out pressures on the AirLine C60?",
+      "answer": "Pressure switch cut-in / cut-out (factory) 145 psi / 175 psi (10.0 / 12.1 bar).",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 8,
+          "end_page": 9,
+          "cited_text": "Pump and air delivery\r\nItem Specification (both models)\r\nPump type Two-stage, two-cylinder, cast iron, splash lubricated\r\nLP cylinder bore 3.15 in (80 mm)\r\nHP cylinder bore 1.65 in (42 mm)\r\nStroke 2.0 in (51 mm)\r\nPump speed 1,050 rpm\r\nPiston displacement 22.9 cfm (648 L/min)\r\nFree air delivery at 90 psi 17.6 cfm (498 L/min)\r\nFree air delivery at 175 psi 16.4 cfm (464 L/min)\r\nMaximum working pressure 175 psi (12.1 bar)\r\nPressure switch cut-in / cut-out (factory) 145 psi / 175 psi (10.0 / 12.1 bar)\r\nTank safety valve setting 200 psi (13.8 bar)\r\nIntercooler safety valve setting 60 psi (4.1 bar)\r\nMaximum duty cycle 75%. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 5.3
+    },
+    {
+      "id": "air-03",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "What breaker do I need for the BA-C60-3 on 460 V?",
+      "answer": "Time-delay fuse or inverse-time circuit breaker, BA-C60-3 460 V: 15 A.\n\nElectrical installation must be done by a qualified electrician following the electrical code that applies at the site. Where local codes require larger conductors or different protection, follow the local codes.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "Electrical service guide\r\nItem BA-C60-1 230 V BA-C60-3 208 V BA-C60-3 230 V BA-C60-3 460 V\r\nSupply 230 V, 1-phase, 60 Hz 208 V, 3-phase, 60 Hz 230 V, 3-phase, 60 Hz 460 V, 3-phase, 60 Hz\r\nVoltage tolerance 207 to 253 V 187 to 229 V 207 to 253 V 414 to 506 V\r\nTime-delay fuse or inverse-time circuit\r\nbreaker\r\n40 A 25 A 25 A 15 A\r\nMinimum copper conductor size, up to\r\n50 ft (15 m)\r\n8 AWG 10 AWG 10 AWG 14 AWG\r\nMinimum copper conductor size, 50 to\r\n100 ft (15 to 30 m)\r\n6 AWG 8 AWG 10 AWG 12 AWG\r\nGrounding conductor 10 AWG 10 AWG 10 AWG 12 AWG\r\nDisconnect Fused or breaker\r\ndisconnect within\r\nsight of the\r\ncompressor\r\nSame Same Same\r\nStarter Not required Factory mounted Factory mounted Factory mounted,\r\nreconnect coil\r\ntransformer\r\nBranch circuit lengths over 100 ft (30 m) require voltage drop calculation by the electrician. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "4.4 Electrical service guide\r\nWARNING\r\nElectrical installation must be done by a qualified electrician following the electrical code that applies\r\nat the site. Where local codes require larger conductors or different protection, follow the local codes.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 9.2
+    },
+    {
+      "id": "air-04",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "What minimum copper conductor size does the BA-C60-1 need for a run of up to 50 ft?",
+      "answer": "8 AWG. Table 4-1 lists, for BA-C60-1 230 V, minimum copper conductor size, up to 50 ft (15 m): 8 AWG.\n\nElectrical installation must be done by a qualified electrician following the electrical code that applies at the site. Where local codes require larger conductors or different protection, follow the local codes.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "Electrical service guide\r\nItem BA-C60-1 230 V BA-C60-3 208 V BA-C60-3 230 V BA-C60-3 460 V\r\nSupply 230 V, 1-phase, 60 Hz 208 V, 3-phase, 60 Hz 230 V, 3-phase, 60 Hz 460 V, 3-phase, 60 Hz\r\nVoltage tolerance 207 to 253 V 187 to 229 V 207 to 253 V 414 to 506 V\r\nTime-delay fuse or inverse-time circuit\r\nbreaker\r\n40 A 25 A 25 A 15 A\r\nMinimum copper conductor size, up to\r\n50 ft (15 m)\r\n8 AWG 10 AWG 10 AWG 14 AWG\r\nMinimum copper conductor size, 50 to\r\n100 ft (15 to 30 m)\r\n6 AWG 8 AWG 10 AWG 12 AWG\r\nGrounding conductor 10 AWG 10 AWG 10 AWG 12 AWG\r\nDisconnect Fused or breaker\r\ndisconnect within\r\nsight of the\r\ncompressor\r\nSame Same Same\r\nStarter Not required Factory mounted Factory mounted Factory mounted,\r\nreconnect coil\r\ntransformer\r\nBranch circuit lengths over 100 ft (30 m) require voltage drop calculation by the electrician. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "4.4 Electrical service guide\r\nWARNING\r\nElectrical installation must be done by a qualified electrician following the electrical code that applies\r\nat the site. Where local codes require larger conductors or different protection, follow the local codes.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 5.8
+    },
+    {
+      "id": "air-05",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "At what pressure does the tank safety valve on the AirLine C60 open?",
+      "answer": "Tank safety valve setting 200 psi (13.8 bar).",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 8,
+          "end_page": 9,
+          "cited_text": "Pump and air delivery\r\nItem Specification (both models)\r\nPump type Two-stage, two-cylinder, cast iron, splash lubricated\r\nLP cylinder bore 3.15 in (80 mm)\r\nHP cylinder bore 1.65 in (42 mm)\r\nStroke 2.0 in (51 mm)\r\nPump speed 1,050 rpm\r\nPiston displacement 22.9 cfm (648 L/min)\r\nFree air delivery at 90 psi 17.6 cfm (498 L/min)\r\nFree air delivery at 175 psi 16.4 cfm (464 L/min)\r\nMaximum working pressure 175 psi (12.1 bar)\r\nPressure switch cut-in / cut-out (factory) 145 psi / 175 psi (10.0 / 12.1 bar)\r\nTank safety valve setting 200 psi (13.8 bar)\r\nIntercooler safety valve setting 60 psi (4.1 bar)\r\nMaximum duty cycle 75%. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.1
+    },
+    {
+      "id": "air-06",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "How much oil does the AirLine C60 pump hold?",
+      "answer": "Oil capacity 48 fl oz (1.4 L)",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 8,
+          "end_page": 9,
+          "cited_text": "Oil capacity 48 fl oz (1.4 L)\r\nSound pressure level at 3 ft 82 dBA\r\nFree air delivery (FAD) is the volume of air at atmospheric conditions delivered by the pump. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.2
+    },
+    {
+      "id": "air-07",
+      "category": "answerable",
+      "manual": "airline-c60",
+      "question": "What oil should I use in the AirLine C60?",
+      "answer": "Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent). Ambient below 50 °F (10 °C): ISO VG 68. Synthetic alternative: Brennvik SynAir 100, part BA-OIL-S100. Do not use automotive engine oil, detergent oils, multigrade oils.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Lubricant\r\nItem Specification\r\nOil type Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent)\r\nSynthetic alternative Brennvik SynAir 100, part BA-OIL-S100. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Do not use Automotive engine oil, detergent oils, multigrade oils\r\nCapacity 48 fl oz (1.4 L)\r\nLevel Center dot of sight glass, pump stopped and level\r\nAmbient below 50 °F (10 °C) ISO VG 68\r\nChecking oil\r\nCheck with the compressor stopped for at least 5 minutes so that oil has drained back into the crankcase. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Lubricant\r\nItem Specification\r\nOil type Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent)\r\nSynthetic alternative Brennvik SynAir 100, part BA-OIL-S100. Change interval may be extended to 1,000 hours.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Do not use Automotive engine oil, detergent oils, multigrade oils\r\nCapacity 48 fl oz (1.4 L)\r\nLevel Center dot of sight glass, pump stopped and level\r\nAmbient below 50 °F (10 °C) ISO VG 68\r\nChecking oil\r\nCheck with the compressor stopped for at least 5 minutes so that oil has drained back into the crankcase. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.2
+    },
+    {
+      "id": "air-08",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "How often should I change the oil in the AirLine C60?",
+      "answer": "Change oil at the first 50 hours (break-in), then every 500 hours or 3 months. With the synthetic alternative Brennvik SynAir 100, part BA-OIL-S100, the change interval may be extended to 1,000 hours.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Maintenance schedule\r\nInterval Task Reference\r\nDaily Check oil level Section 6.4\r\nDaily Drain tank condensate Section 5.5\r\nDaily Listen for unusual noise or vibration Table 7-1\r\nWeekly Clean air intake filter Section 6.3\r\nWeekly Drain tank manually if automatic drain fitted Section 5.6\r\nMonthly Check belt tension and condition Section 6.5\r\nMonthly Test tank safety valve Section 6.7\r\nMonthly Clean pump fins, intercooler and motor Section 6.8\r\nMonthly Check for air leaks Section 6.9\r\nFirst 50 hours Change oil (break-in) Section 6.4\r\nEvery 500 hours or 3 months Change oil Section 6.4\r\nEvery 6 months Replace air intake filter element Section 6.3\r\nEvery 6 months Check anchor bolts and isolator pads Section 4.3\r\nEvery 1,000 hours Inspect pump valves; replace check valve seal Contact service\r\nYearly Tank internal inspection where required by local regulations Local regulations\r\n6.2 Hour meter\r\nThe pressure switch cover has an hour meter that records motor running time. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Lubricant\r\nItem Specification\r\nOil type Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent)\r\nSynthetic alternative Brennvik SynAir 100, part BA-OIL-S100. Change interval may be extended to 1,000 hours.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.8
+    },
+    {
+      "id": "air-09",
+      "category": "safety_prerequisite",
+      "manual": "airline-c60",
+      "question": "How do I test the tank safety valve on the AirLine C60?",
+      "answer": "1. With the tank at more than 100 psi, wear eye and ear protection.\n2. Pull the safety valve ring fully for 1 to 2 seconds. Air must discharge with force.\n3. Release the ring. The valve must reseat and stop leaking.\n4. If the valve does not open, does not reseat or leaks, replace it immediately with part BA-SV200. Do not repair or adjust it.\n\nCheck the safety valve monthly by pulling its ring with the tank under pressure.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "2 Pull the safety valve ring fully for 1 to 2 seconds. Air must discharge with force.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "3 Release the ring. The valve must reseat and stop leaking.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "4 If the valve does not open, does not reseat or leaks, replace it immediately with part BA-SV200. Do not repair or\r\nadjust it."
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "• Check the safety valve monthly by pulling its ring with the tank under pressure (Section 6.7).\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.0
+    },
+    {
+      "id": "air-10",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "How much should the belt on the AirLine C60 deflect when I check its tension?",
+      "answer": "A force of 10 lb (4.5 kg) should deflect the belt 1/2 in (13 mm). Check tension midway between the flywheel and motor pulley.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "A force of 10 lb (4.5 kg) should deflect the belt 1/2 in (13 mm). "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "Check tension midway between the flywheel and motor pulley.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.3
+    },
+    {
+      "id": "air-11",
+      "category": "answerable",
+      "manual": "airline-c60",
+      "question": "Air leaks from the unloader on the AirLine C60 while the motor is stopped. What is wrong?",
+      "answer": "Check valve leaking. Remedy: Replace check valve seal kit BA-CVK.\n\nBefore any maintenance: set the pressure switch lever to O, lock out power at the disconnect, release all pressure from the tank and lines, and allow the pump to cool for 30 minutes.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Motor does not start No power; disconnect off; fuse blown or breaker\r\ntripped; pressure switch lever at O; tank\r\npressure above cut-in\r\nCheck supply; reset breaker; set lever to\r\nAUTO; use air until pressure falls below cut-in\r\n2 Motor does not start, hums\r\n(BA-C60-1)\r\nLow voltage; failed start capacitor; check valve\r\nleaking so motor starts against pressure\r\nCheck voltage at motor during start; replace\r\ncapacitor; see symptom 8\r\n3 Motor does not start\r\n(BA-C60-3)\r\nOverload OL1 tripped; starter coil not energized;\r\ncoil transformer connected for wrong voltage\r\nReset OL1 after 5 minutes; check pressure\r\nswitch contacts; check Section 9.3\r\n4 Breaker trips at start Breaker too small or not time-delay; low voltage;\r\nunloader not releasing; long or undersized\r\nsupply conductors\r\nCheck Table 4-1; check unloader; check\r\nconductor size\r\n5 Motor overload trips while\r\nrunning\r\nLow voltage; ambient too hot; belt too tight;\r\npressure switch set above 175 psi; incorrect oil\r\nCheck voltage; ventilate; set belt tension; reset\r\nswitch; use correct oil\r\n6 Compressor runs continuously Air demand exceeds delivery; leaks; drain valve\r\nopen; worn pump valves; clogged intake filter\r\nCompare demand (Table 12-1); fix leaks; close\r\ndrain; clean filter; service pump\r\n7 Compressor cycles too often Leaks; leaking check valve; tank full of water;\r\npressure switch differential reduced\r\nFix leaks; replace check valve seal; drain tank;\r\ncontact service\r\n8 Air leaks from unloader while\r\nmotor is stopped\r\nCheck valve leaking Replace check valve seal kit BA-CVK\r\n9 Air leaks from unloader while\r\nmotor runs\r\nUnloader valve stuck open; pressure switch fault Clean or replace unloader; replace pressure\r\nswitch\r\n10 Tank safety valve opens Pressure switch does not stop motor at cut-out;\r\npressure switch set too high; faulty safety valve\r\nStop compressor immediately; replace\r\npressure switch; test safety valve\r\n11 Intercooler safety valve opens HP cylinder valve leaking or broken; HP head\r\ngasket leak\r\nStop compressor; contact service\r\n12 Low air delivery Clogged intake filter; worn piston rings; leaking\r\nvalves; belt slipping; leaks\r\nClean filter; set belt tension; contact service\r\nfor rings and valves\r\n13 Excessive oil consumption Overfilled crankcase; clogged intake filter; worn\r\nrings; wrong oil; running above 75% duty cycle\r\nCorrect level; clean filter; use correct oil;\r\nreduce duty\r\n14 Oil in air lines As symptom 13; no filter at point of use As symptom 13; fit coalescing filter\r\n15 Water in air lines Tank not drained; no drop legs; piping slopes the\r\nwrong way; high humidity\r\nDrain daily; correct piping (Figure 4-2); add\r\ndryer\r\n16 Knocking noise Loose flywheel or pulley; loose motor bolts;\r\nworn bearings; low oil\r\nTighten; check oil; contact service\r\n17 Belt squeals Belt loose or glazed; pulleys misaligned Set tension; align pulleys; replace belt\r\n18 Excessive vibration Not anchored; isolator pads fully compressed;\r\nloose pulleys\r\nAnchor per Section 4.3; replace pads; tighten\r\n19 Pump very hot or discolored Blocked cooling; wrong rotation (BA-C60-3);\r\nduty cycle exceeded; low oil\r\nClean fins; check rotation; reduce duty; check\r\noil"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Maintenance\r\nWARNING\r\nBefore any maintenance: set the pressure switch lever to O, lock out power at the disconnect, release\r\nall pressure from the tank and lines, and allow the pump to cool for 30 minutes.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.4
+    },
+    {
+      "id": "air-12",
+      "category": "answerable",
+      "manual": "airline-c60",
+      "question": "Can I use PVC pipe for the AirLine C60 air lines?",
+      "answer": "Use galvanized steel, black iron, copper (type L) or aluminum piping rated for at least 200 psi. Never use PVC pipe for compressed air.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "• Use galvanized steel, black iron, copper (type L) or aluminum piping rated for at least 200 psi. Never use PVC pipe\r\nfor compressed air.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.8
+    },
+    {
+      "id": "air-13",
+      "category": "answerable",
+      "manual": "airline-c60",
+      "question": "How do I check the motor rotation on the BA-C60-3?",
+      "answer": "Three-phase motors can run in either direction depending on supply phase order. The pump must turn in the direction of the arrow on the belt guard, so that the flywheel fan blows cooling air toward the pump.\n\n1. Open the tank drain valve so that the compressor starts without load.\n2. Switch on power at the disconnect. Set the pressure switch lever to AUTO for about 1 second, then back to O.\n3. Watch the flywheel through the belt guard as it coasts down. Compare its direction with the arrow on the belt guard.\n4. If the direction is wrong, lock out the supply disconnect and have the electrician exchange any two supply conductors at the starter terminals L1, L2 and L3.\n5. Repeat the check.\n\nNOTICE: Running the pump in the wrong direction for more than a few seconds reduces cooling and lubrication and can damage the pump.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "5.2 Checking rotation (BA-C60-3 only)\r\nThree-phase motors can run in either direction depending on supply phase order. The pump must turn in the direction\r\nof the arrow on the belt guard, so that the flywheel fan blows cooling air toward the pump.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "1 Open the tank drain valve so that the compressor starts without load.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "2 Switch on power at the disconnect. Set the pressure switch lever to AUTO for about 1 second, then back to O.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "3 Watch the flywheel through the belt guard as it coasts down. Compare its direction with the arrow on the belt\r\nguard.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "4 If the direction is wrong, lock out the supply disconnect and have the electrician exchange any two supply\r\nconductors at the starter terminals L1, L2 and L3.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "5 Repeat the check.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "NOTICE\r\nRunning the pump in the wrong direction for more than a few seconds reduces cooling and lubrication\r\nand can damage the pump. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 7.7
+    },
+    {
+      "id": "air-14",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "How often does the optional automatic drain valve on the AirLine C60 open by default?",
+      "answer": "Factory settings are 3 seconds open every 30 minutes. In humid conditions, shorten the interval.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "Factory settings are 3 seconds open every 30 minutes. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "In humid conditions, shorten\r\nthe interval. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.7
+    },
+    {
+      "id": "air-15",
+      "category": "numeric",
+      "manual": "airline-c60",
+      "question": "What is the duty cycle of the AirLine C60?",
+      "answer": "The C60 is rated for a 75% duty cycle. In any 60-minute period, the pump should run no more than 45 minutes. The motor should start no more than 10 times per hour.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "5.7 Duty cycle\r\nThe C60 is rated for a 75% duty cycle. In any 60-minute period, the pump should run no more than 45 minutes. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "The motor should start no more than 10 times per hour. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "id": "air-16",
+      "category": "safety_prerequisite",
+      "manual": "airline-c60",
+      "question": "How do I change the oil in the AirLine C60?",
+      "answer": "Before any maintenance: set the pressure switch lever to O, lock out power at the disconnect, release all pressure from the tank and lines, and allow the pump to cool for 30 minutes.\n\n1. Run the compressor for 5 minutes to warm the oil, then stop it and lock out power.\n2. Place a container of at least 2 qt (2 L) under the drain plug.\n3. Remove the fill plug, then the drain plug. Let the oil drain fully.\n4. Refit the drain plug with a new sealing washer.\n5. Fill with oil from Table 6-2 to the center dot of the sight glass. This takes about 48 fl oz (1.4 L).\n6. Refit the fill plug. Dispose of used oil according to local regulations.\n\nOil type: Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent); ambient below 50 °F (10 °C): ISO VG 68. Do not overfill. Overfilling causes oil carryover into the air system.",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Maintenance\r\nWARNING\r\nBefore any maintenance: set the pressure switch lever to O, lock out power at the disconnect, release\r\nall pressure from the tank and lines, and allow the pump to cool for 30 minutes.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Changing oil\r\n1 Run the compressor for 5 minutes to warm the oil, then stop it and lock out power.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "2 Place a container of at least 2 qt (2 L) under the drain plug.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "3 Remove the fill plug, then the drain plug. Let the oil drain fully.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "4 Refit the drain plug with a new sealing washer.\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "5 Fill with oil from Table 6-2 to the center dot of the sight glass. This takes about 48 fl oz (1.4 L).\r\n"
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "6 Refit the fill plug. Dispose of used oil according to local regulations."
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Lubricant\r\nItem Specification\r\nOil type Non-detergent air compressor oil, ISO VG 100 (SAE 30 equivalent)\r\nSynthetic alternative Brennvik SynAir 100, part BA-OIL-S100. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Do not use Automotive engine oil, detergent oils, multigrade oils\r\nCapacity 48 fl oz (1.4 L)\r\nLevel Center dot of sight glass, pump stopped and level\r\nAmbient below 50 °F (10 °C) ISO VG 68\r\nChecking oil\r\nCheck with the compressor stopped for at least 5 minutes so that oil has drained back into the crankcase. "
+        },
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Do not overfill. Overfilling causes oil carryover into the air system.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 14.2
+    },
+    {
+      "id": "arc-01",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "What polarity do I use for self-shielded flux-cored wire on the ArcLine 215?",
+      "answer": "Self-shielded flux-cored, no shielding gas: DCEN (electrode negative), polarity lead to − stud, work cable to + terminal, FLUX mode.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "Process and polarity\r\nWire type Shielding gas Polarity Polarity lead to Work cable to Mode\r\nSolid carbon steel C25 (75% argon, 25% CO2) or\r\n100% CO2\r\nDCEP (electrode\r\npositive)\r\n+ stud − terminal MIG\r\nStainless steel Tri-mix (90% He, 7.5% Ar,\r\n2.5% CO2)\r\nDCEP + stud − terminal MIG\r\nSelf-shielded flux-cored None DCEN (electrode\r\nnegative)\r\n− stud + terminal FLUX\r\nGas-shielded flux-cored Not supported by this welder Not applicable Not applicable Not applicable Not\r\napplicable\r\nAluminum (BSG-10 spool\r\ngun)\r\n100% argon DCEP Spool gun lead to\r\n+ terminal\r\n− terminal SPOOL"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 5.8
+    },
+    {
+      "id": "arc-02",
+      "category": "safety_prerequisite",
+      "manual": "arcline-215",
+      "question": "How do I change the polarity on the ArcLine 215?",
+      "answer": "Disconnect input power before installing or servicing the welder. Lock out and tag out the supply disconnect.\n\n1. Switch off the welder and disconnect input power.\n2. Open the drive compartment door.\n3. Remove the knurled nut from the stud holding the polarity lead.\n4. Move the polarity lead to the other stud and refit the knurled nut. Tighten by hand, then a further quarter turn with pliers.\n5. Move the work cable plug on the front panel to the other output terminal.\n6. Close the door and select the matching mode with the MODE button.\n\nThe polarity must match the wire being used. See Table 4-3 for the required polarity for each wire type.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "Lock out and tag out the supply disconnect.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "Polarity lead and work cable positions\r\nChanging polarity\r\n1 Switch off the welder and disconnect input power.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "2 Open the drive compartment door.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "3 Remove the knurled nut from the stud holding the polarity lead.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "4 Move the polarity lead to the other stud and refit the knurled nut. Tighten by hand, then a further quarter turn\r\nwith pliers.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "5 Move the work cable plug on the front panel to the other output terminal.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "6 Close the door and select the matching mode with the MODE button."
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "4.7 Setting polarity\r\nThe polarity must match the wire being used. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 7.1
+    },
+    {
+      "id": "arc-03",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What circuit breaker does the BW-215 need on 230 V?",
+      "answer": "Time-delay circuit breaker or fuse 30 A. Normal operating (non-time-delay) fuse 40 A. The welder must be connected to a dedicated branch circuit.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "Electrical service guide\r\nItem BW-215 at 230 V BW-215DV at 230 V BW-215DV at 120 V\r\nInput voltage tolerance 207 to 253 V 207 to 253 V 104 to 132 V\r\nFrequency 50 / 60 Hz 50 / 60 Hz 60 Hz\r\nTime-delay circuit breaker or fuse 30 A 30 A 20 A\r\nNormal operating (non-time-delay)\r\nfuse\r\n40 A 40 A 25 A\r\nMinimum input conductor size 10 AWG 10 AWG 12 AWG\r\nMaximum recommended input\r\nconductor length\r\n95 ft (29 m) 95 ft (29 m) 45 ft (14 m)\r\nMinimum grounding conductor size 10 AWG 10 AWG 12 AWG\r\nReceptacle NEMA 6-50R NEMA 6-50R NEMA 5-20R\r\nWARNING\r\nHave a qualified electrician install the receptacle and branch circuit. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 6.5
+    },
+    {
+      "id": "arc-04",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What is the rated output of the BW-215 at 230 V?",
+      "answer": "160 A at 22.0 V DC, 40% duty cycle.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 9,
+          "end_page": 10,
+          "cited_text": "Input and output ratings\r\nRating BW-215 at 230 V BW-215DV at 230 V BW-215DV at 120 V\r\nRated output 160 A at 22.0 V DC, 40% duty\r\ncycle\r\n160 A at 22.0 V DC, 40% duty\r\ncycle\r\n110 A at 19.5 V DC, 20% duty\r\ncycle\r\nMaximum output 215 A at 24.8 V DC, 20% duty\r\ncycle\r\n215 A at 24.8 V DC, 20% duty\r\ncycle\r\n140 A at 21.0 V DC, 10% duty\r\ncycle\r\nContinuous output (100%) 100 A at 19.0 V DC 100 A at 19.0 V DC 60 A at 17.0 V DC\r\nInput current at rated output\r\n(I1max)\r\n25.5 A 25.5 A 20.0 A\r\nEffective input current (I1eff) 16.1 A 16.1 A 13.5 A\r\nInput kVA at rated output 5.9 kVA 5.9 kVA 2.4 kVA\r\nMaximum open-circuit voltage 34 V DC 34 V DC 34 V DC\r\nWelding voltage range 14 to 26 V 14 to 26 V 14 to 22 V\r\nIdle power 28 W 30 W 30 W\r\nPower factor at rated output 0.68 0.99 0.99"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.5
+    },
+    {
+      "id": "arc-05",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What is the wire feed speed range of the ArcLine 215?",
+      "answer": "Wire feed speed 50 to 600 in/min (1.3 to 15.2 m/min).",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 10,
+          "end_page": 11,
+          "cited_text": "2.3 Wire feed and consumables\r\nTable 2-3. Wire feed specifications\r\nItem Specification\r\nWire feed speed 50 to 600 in/min (1.3 to 15.2 m/min)\r\nSolid steel wire 0.023 to 0.035 in (0.6 to 0.9 mm)\r\nStainless steel wire 0.023 to 0.035 in (0.6 to 0.9 mm)\r\nSelf-shielded flux-cored wire 0.030 to 0.045 in (0.8 to 1.2 mm)\r\nAluminum wire 0.030 to 0.035 in (0.8 to 0.9 mm), with BSG-10 spool gun only\r\nSpool sizes 4 in (2 lb / 1 kg) and 8 in (10 to 12 lb / 4.5 to 5.4 kg)\r\nDrive system Two-roll, cast aluminum, with dual-groove drive roll\r\nDrive roll installed at factory V groove, 0.030 / 0.035 in\r\nGun supplied BG-215, 10 ft (3.0 m), 180 A at 60% duty cycle with C25 gas\r\nWork cable supplied 10 ft (3.0 m), 4 AWG, with 250 A clamp\r\nGas valve 24 V DC solenoid, rear 5/8-18 in RH inert gas fitting"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.8
+    },
+    {
+      "id": "arc-06",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What drive tension setting does the ArcLine 215 manual give for solid wire?",
+      "answer": "Typical settings: 3 to 4 for solid wire.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 21,
+          "end_page": 22,
+          "cited_text": "Typical settings: 3 to 4 for solid wire, 2 to 3 for\r\nflux-cored wire."
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.5
+    },
+    {
+      "id": "arc-07",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What shielding gas flow rate does the ArcLine 215 manual give for steel indoors with no drafts?",
+      "answer": "Steel, indoors, no drafts, C25 or 100% CO2: 20 to 25 cfh (9.4 to 11.8 L/min).",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "Shielding gas flow rates\r\nApplication Gas Flow rate\r\nSteel, indoors, no drafts C25 or 100% CO2 20 to 25 cfh (9.4 to 11.8 L/min)\r\nSteel, with light drafts C25 or 100% CO2 25 to 30 cfh (11.8 to 14.2 L/min)\r\nStainless steel Tri-mix 25 to 30 cfh (11.8 to 14.2 L/min)\r\nAluminum with BSG-10 100% argon 25 to 35 cfh (11.8 to 16.5 L/min)"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.6
+    },
+    {
+      "id": "arc-08",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "What does error E07 mean on the ArcLine 215 and what should I do?",
+      "answer": "E07 means input voltage changed while running (BW-215DV only).\n\n1. Switch off, wait until display is dark, then switch on. See Section 4.5.\n2. Do not change the input supply while the welder is switched on. Switch off, wait until the display goes dark, then change the connection.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 31,
+          "end_page": 32,
+          "cited_text": "E07 Input voltage changed while\r\nrunning\r\nBW-215DV\r\nonly\r\nSwitch off, wait until display is dark, then switch on. "
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 31,
+          "end_page": 32,
+          "cited_text": "E07 Input voltage changed while\r\nrunning\r\nBW-215DV\r\nonly\r\nSwitch off, wait until display is dark, then switch on. See Section\r\n4.5.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "NOTICE\r\nDo not change the input supply while the welder is switched on. Switch off, wait until the display goes\r\ndark, then change the connection. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 5.5
+    },
+    {
+      "id": "arc-09",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "The OVERTEMP lamp on the ArcLine 215 is on and the display shows E01. What should I do?",
+      "answer": "If internal temperature exceeds the safe limit, output stops, the OVERTEMP lamp lights and the display shows E01.\n\n1. The fan continues to run. Leave the welder switched on so that the fan can cool it.\n2. Output is restored automatically when the welder has cooled, usually within 5 to 15 minutes. The lamp goes out when welding can resume.\n\nNOTICE: Do not switch the welder off to clear an overtemperature condition. Switching off stops the fan and lengthens the cooling time.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Starting settings for aluminum with BSG-10, 4043 or 5356 wire, 100% argon\r\nThickness Wire Voltage Spool gun dial\r\n14 ga (0.075 in) 0.030 in 17.5 V 45\r\n1/8 in (3.2 mm) 0.030 in 19.0 V 55\r\n3/16 in (4.8 mm) 0.035 in 21.0 V 65\r\n1/4 in (6.4 mm) 0.035 in 23.0 V (230 V only) 75\r\n5.8 Thermal protection\r\nIf internal temperature exceeds the safe limit, output stops, the OVERTEMP lamp lights and the display shows E01.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "The fan continues to run. Leave the welder switched on so that the fan can cool it. "
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Output is restored automatically\r\nwhen the welder has cooled, usually within 5 to 15 minutes. The lamp goes out when welding can resume.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "NOTICE\r\nDo not switch the welder off to clear an overtemperature condition. Switching off stops the fan and\r\nlengthens the cooling time.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 5.2
+    },
+    {
+      "id": "arc-10",
+      "category": "safety_prerequisite",
+      "manual": "arcline-215",
+      "question": "How do I replace the gun liner on the ArcLine 215?",
+      "answer": "Before starting: Disconnect input power before maintenance, except for checks that require power. Capacitors inside the welder can hold a charge for up to 5 minutes after power is removed. Do not remove the case cover.\n\n1. Disconnect input power. Lay the gun cable out straight.\n2. Remove the nozzle, contact tip and gas diffuser.\n3. Disconnect the gun from the welder. Remove the liner retaining nut at the connector end and pull the liner out.\n4. Push the new liner in from the connector end until it bottoms in the gun neck. Do not kink the liner.\n5. Fit the liner retaining nut.\n6. With the gun cable straight, cut the liner flush with the end of the gun neck, 1/16 in (1.5 mm) back from the diffuser seat. Remove burrs.\n7. Refit the diffuser, tip and nozzle. Reconnect the gun.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 27,
+          "end_page": 28,
+          "cited_text": "Maintenance\r\nWARNING\r\nDisconnect input power before maintenance, except for checks that require power. Capacitors inside\r\nthe welder can hold a charge for up to 5 minutes after power is removed. Do not remove the case\r\ncover.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Replacing the liner\r\n1 Disconnect input power. Lay the gun cable out straight.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "2 Remove the nozzle, contact tip and gas diffuser.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "3 Disconnect the gun from the welder. Remove the liner retaining nut at the connector end and pull the liner out.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "4 Push the new liner in from the connector end until it bottoms in the gun neck. Do not kink the liner.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "5 Fit the liner retaining nut.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "6 With the gun cable straight, cut the liner flush with the end of the gun neck, 1/16 in (1.5 mm) back from the\r\ndiffuser seat. Remove burrs.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "7 Refit the diffuser, tip and nozzle. Reconnect the gun."
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 12.9
+    },
+    {
+      "id": "arc-11",
+      "category": "safety_prerequisite",
+      "manual": "arcline-215",
+      "question": "How do I blow the dust out of the ArcLine 215?",
+      "answer": "WARNING: Disconnect input power before maintenance, except for checks that require power. Capacitors inside the welder can hold a charge for up to 5 minutes after power is removed. Do not remove the case cover.\n\n1. Once a month, or more often in dusty conditions, disconnect input power and blow dust out of the front and rear vents with dry compressed air at no more than 30 psi (2 bar).\n2. Clean the case with a damp cloth. Do not use solvents. Do not direct compressed air into the display.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 27,
+          "end_page": 28,
+          "cited_text": "Maintenance\r\nWARNING\r\nDisconnect input power before maintenance, except for checks that require power. Capacitors inside\r\nthe welder can hold a charge for up to 5 minutes after power is removed. Do not remove the case\r\ncover.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 29,
+          "end_page": 30,
+          "cited_text": "ArcLine 215 Owner's Manual | Issued October 2026 Page 29\r\n6.6 Cleaning the welder\r\nOnce a month, or more often in dusty conditions, disconnect input power and blow dust out of the front and rear\r\nvents with dry compressed air at no more than 30 psi (2 bar). "
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 29,
+          "end_page": 30,
+          "cited_text": "Clean the case with a damp cloth. Do not use solvents.\r\nDo not direct compressed air into the display.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.8
+    },
+    {
+      "id": "arc-12",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "Can I weld aluminum with the standard gun on the ArcLine 215?",
+      "answer": "No. Aluminum wire is soft and cannot be pushed reliably through the standard 10 ft gun. Use the optional BSG-10 spool gun, which carries a 4 in spool on the gun and feeds the wire a short distance to the arc. Aluminum wire 0.030 to 0.035 in (0.8 to 0.9 mm), with BSG-10 spool gun only.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 24,
+          "end_page": 25,
+          "cited_text": "5.7 Using the BSG-10 spool gun\r\nAluminum wire is soft and cannot be pushed reliably through the standard 10 ft gun. Use the optional BSG-10 spool\r\ngun, which carries a 4 in spool on the gun and feeds the wire a short distance to the arc.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 9,
+          "end_page": 10,
+          "cited_text": "Model comparison\r\nFeature BW-215 BW-215DV\r\nInput voltage 230 V single-phase only 120 V or 230 V single-phase, detected automatically\r\nInput plug supplied NEMA 6-50P NEMA 6-50P with 5-20P adapter cord (BW-ADP-120)\r\nOutput range at 230 V 30 to 215 A 30 to 215 A\r\nOutput range at 120 V Not applicable 30 to 140 A\r\n120 V indicator lamp Not fitted Fitted\r\nError code E07 Not used Input voltage changed while running\r\nWeight with gun and cables 64 lb (29.0 kg) 66 lb (29.9 kg)\r\n2.2 Electrical ratings\r\nTable 2-2. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 11.7
+    },
+    {
+      "id": "arc-13",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "How long does the fan on the ArcLine 215 keep running after welding?",
+      "answer": "Fan-on-demand. Fan runs while welding and for 5 minutes after.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 11,
+          "end_page": 12,
+          "cited_text": "Operating temperature 14 to 104 °F (−10 to 40 °C)\r\nStorage temperature −13 to 131 °F (−25 to 55 °C)\r\nMaximum altitude for full rating 3,300 ft (1,000 m)\r\nCooling Fan-on-demand. Fan runs while welding and for 5 minutes after.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.6
+    },
+    {
+      "id": "arc-14",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "Which drive roll do I use for 0.045 in self-shielded flux-cored wire on the ArcLine 215?",
+      "answer": "Self-shielded flux-cored, 0.045 in: Knurled V 0.045 in, part number BW-DRK045.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Drive roll selection\r\nWire Diameter Drive roll Part number\r\nSolid steel or stainless 0.023 / 0.025 in V groove 0.024 / 0.030 in BW-DRV2430\r\nSolid steel or stainless 0.030 / 0.035 in V groove 0.030 / 0.035 in (factory installed) BW-DRV3035\r\nSelf-shielded flux-cored 0.030 / 0.035 in Knurled V 0.030 / 0.035 in (supplied) BW-DRK3035\r\nSelf-shielded flux-cored 0.045 in Knurled V 0.045 in BW-DRK045\r\nAluminum 0.030 / 0.035 in Not used: aluminum is fed by the BSG-10\r\nspool gun\r\nNot applicable"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "id": "arc-15",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What filter lens shade does the ArcLine 215 manual require?",
+      "answer": "Use a helmet or face shield with a filter lens of shade 10 to 13 for the currents produced by this welder.\n\nWARNING Arc rays can burn eyes and skin. Wear a welding helmet with the correct shade of filter. Wear approved safety glasses with side shields under the helmet.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "• Use a helmet or face shield with a filter lens of shade 10 to 13 for the currents produced by this welder.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "1.3 Arc rays, noise and hot parts\r\nWARNING Arc rays can burn eyes and skin. Wear a welding helmet with the correct shade of filter.\r\n"
+        },
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "• Wear approved safety glasses with side shields under the helmet.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 10.8
+    },
+    {
+      "id": "arc-16",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "How often does the ArcLine 215 need an electrical safety inspection?",
+      "answer": "Every 12 months: electrical safety inspection by a qualified technician. Reference: local regulations.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 27,
+          "end_page": 28,
+          "cited_text": "Maintenance schedule\r\nInterval Task Reference\r\nEvery use Inspect input cord, gun cable and work cable for damage Section 6.2\r\nEvery use Clean spatter from nozzle; check contact tip Section 6.3\r\nEvery use Check gas hose and fittings for leaks (MIG mode) Section 4.8\r\nWeekly Clean drive rolls and wire guides Section 6.4\r\nEvery new spool Blow out gun liner with dry compressed air Section 6.5\r\nMonthly Blow dust out of air intake and vents Section 6.6\r\nEvery 3 months Check terminal studs and gun connection for tightness and discoloration Section 6.2\r\nEvery 6 months or 500 arc\r\nhours\r\nReplace gun liner; inspect drive roll grooves for wear Sections 6.4, 6.5\r\nEvery 12 months Electrical safety inspection by a qualified technician Local regulations\r\n6.2 Cables and connections\r\nCheck cables for cuts, crushed areas, exposed conductors and overheated insulation. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.2
+    },
+    {
+      "id": "arc-17",
+      "category": "numeric",
+      "manual": "arcline-215",
+      "question": "What receptacle does the BW-215DV need on 120 V input?",
+      "answer": "NEMA 5-20R.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "Electrical service guide\r\nItem BW-215 at 230 V BW-215DV at 230 V BW-215DV at 120 V\r\nInput voltage tolerance 207 to 253 V 207 to 253 V 104 to 132 V\r\nFrequency 50 / 60 Hz 50 / 60 Hz 60 Hz\r\nTime-delay circuit breaker or fuse 30 A 30 A 20 A\r\nNormal operating (non-time-delay)\r\nfuse\r\n40 A 40 A 25 A\r\nMinimum input conductor size 10 AWG 10 AWG 12 AWG\r\nMaximum recommended input\r\nconductor length\r\n95 ft (29 m) 95 ft (29 m) 45 ft (14 m)\r\nMinimum grounding conductor size 10 AWG 10 AWG 12 AWG\r\nReceptacle NEMA 6-50R NEMA 6-50R NEMA 5-20R\r\nWARNING\r\nHave a qualified electrician install the receptacle and branch circuit. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [
+        "Missing: 20 A"
+      ],
+      "passed": false,
+      "seconds": 7.4
+    },
+    {
+      "id": "arc-18",
+      "category": "answerable",
+      "manual": "arcline-215",
+      "question": "Can I run gas-shielded flux-cored wire on the ArcLine 215?",
+      "answer": "Gas-shielded flux-cored: Not supported by this welder. Polarity, polarity lead, work cable and mode are all listed as Not applicable.",
+      "citations": [
+        {
+          "document": "ArcLine 215 welder manual",
+          "start_page": 17,
+          "end_page": 18,
+          "cited_text": "Process and polarity\r\nWire type Shielding gas Polarity Polarity lead to Work cable to Mode\r\nSolid carbon steel C25 (75% argon, 25% CO2) or\r\n100% CO2\r\nDCEP (electrode\r\npositive)\r\n+ stud − terminal MIG\r\nStainless steel Tri-mix (90% He, 7.5% Ar,\r\n2.5% CO2)\r\nDCEP + stud − terminal MIG\r\nSelf-shielded flux-cored None DCEN (electrode\r\nnegative)\r\n− stud + terminal FLUX\r\nGas-shielded flux-cored Not supported by this welder Not applicable Not applicable Not applicable Not\r\napplicable\r\nAluminum (BSG-10 spool\r\ngun)\r\n100% argon DCEP Spool gun lead to\r\n+ terminal\r\n− terminal SPOOL"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.1
+    },
+    {
+      "id": "lift-01",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "What should I check on the LiftLine EPT-45 before each shift?",
+      "answer": "Perform this inspection at the start of every shift, before the truck is used. Record it in the daily checklist (Table 13-2). Do not operate a truck that fails any item. Tag it out of service and report it.\n\n1. Truck exterior: No damage, leaks, loose parts. Covers in place.\n2. Forks: Not bent or cracked. Fork tips straight.\n3. Wheels and rollers: Drive wheel and load rollers free of debris, shrink wrap and flat spots.\n4. Battery: Connector fully engaged, cables undamaged. BL-EPT45-L: no acid on top of battery.\n5. Capacity plate and labels: Present and legible\n6. Emergency disconnect: Push: all power off. Pull to reset.\n7. Horn: Sounds when pressed\n8. Tiller return: Released tiller returns to upper brake zone and truck cannot drive\n9. Brake: Truck stops in upper and lower brake zones\n10. Throttle: Both directions work; returns to neutral when released\n11. Belly button: At creep speed, forks trailing, press the belly button: truck reverses and stops\n12. Lift and lower: Forks raise and lower smoothly with no hydraulic leaks\n13. Steering: Turns smoothly lock to lock\n14. Battery charge: At least 3 bars before starting the shift",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 15,
+          "end_page": 16,
+          "cited_text": "4.3 Daily pre-shift inspection\r\nPerform this inspection at the start of every shift, before the truck is used. Record it in the daily checklist (Table 13-2).\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 15,
+          "end_page": 16,
+          "cited_text": "Do not operate a truck that fails any item. Tag it out of service and report it."
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "Item Check\r\n1 Truck exterior No damage, leaks, loose parts. Covers in place.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "2 Forks Not bent or cracked. Fork tips straight.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "3 Wheels and rollers Drive wheel and load rollers free of debris, shrink wrap and flat spots.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "4 Battery Connector fully engaged, cables undamaged. BL-EPT45-L: no acid on top of battery.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "5 Capacity plate and labels Present and legible\r\n6 Emergency disconnect Push: all power off. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "5 Capacity plate and labels Present and legible\r\n6 Emergency disconnect Push: all power off. Pull to reset.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 16,
+          "end_page": 17,
+          "cited_text": "7 Horn Sounds when pressed\r\n8 Tiller return Released tiller returns to upper brake zone and truck cannot drive\r\n9 Brake Truck stops in upper and lower brake zones\r\n10 Throttle Both directions work; returns to neutral when released\r\n11 Belly button At creep speed, forks trailing, press the belly button: truck reverses and stops\r\n12 Lift and lower Forks raise and lower smoothly with no hydraulic leaks\r\n13 Steering Turns smoothly lock to lock\r\n14 Battery charge At least 3 bars before starting the shift"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 14.3
+    },
+    {
+      "id": "lift-02",
+      "category": "safety_prerequisite",
+      "manual": "liftline-ept45",
+      "question": "How do I charge the BL-EPT45-LI?",
+      "answer": "WARNING Lithium-ion batteries store large amounts of energy. Do not crush, puncture, open or heat the BL-EPT45-LI battery. Use only the Brennvik charger BL-CHG-LI100. If the battery is damaged, swollen, hot or smoking, move away and call emergency services.\n\nNOTICE Use only the BL-CHG-LI100 charger. A lead-acid charger will not charge the lithium battery correctly and can damage it. The blue keyed connector prevents connection to the onboard lead-acid charger.\n\n1. Park the truck in the charging area and turn the key to OFF.\n2. Connect the BL-CHG-LI100 charger plug to the blue SB175 charging connector on the truck.\n3. The charger and the battery management system communicate before charging starts. The charger display shows charge level.\n4. Charging from 20% to 100% takes about 2.5 hours. Opportunity charging during breaks is permitted and does not shorten battery life.\n5. Disconnect when finished or when needed. The BMS stops charging automatically at 100%.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 7,
+          "end_page": 8,
+          "cited_text": "WARNING\r\nLithium-ion batteries store large amounts of energy. Do not crush, puncture, open or heat the\r\nBL-EPT45-LI battery. Use only the Brennvik charger BL-CHG-LI100. If the battery is damaged,\r\nswollen, hot or smoking, move away and call emergency services.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "NOTICE\r\nUse only the BL-CHG-LI100 charger. A lead-acid charger will not charge the lithium battery correctly\r\nand can damage it. The blue keyed connector prevents connection to the onboard lead-acid charger.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "LiftLine EPT-45 Operator and Maintenance Manual | Issued October 2026 Page 22\r\n6.5 Charging the BL-EPT45-LI\r\n1 Park the truck in the charging area and turn the key to OFF.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "2 Connect the BL-CHG-LI100 charger plug to the blue SB175 charging connector on the truck.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "3 The charger and the battery management system communicate before charging starts. The charger display shows\r\ncharge level.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "4 Charging from 20% to 100% takes about 2.5 hours. Opportunity charging during breaks is permitted and does not\r\nshorten battery life.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "5 Disconnect when finished or when needed. The BMS stops charging automatically at 100%.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [
+        "Prerequisite after the steps: key to OFF"
+      ],
+      "passed": false,
+      "seconds": 15.3
+    },
+    {
+      "id": "lift-03",
+      "category": "safety_prerequisite",
+      "manual": "liftline-ept45",
+      "question": "How do I charge the BL-EPT45-L?",
+      "answer": "DANGER: Lead-acid batteries produce hydrogen gas while charging, which can explode. Charge the BL-EPT45-L only in a ventilated area away from sparks and flames. Battery electrolyte is sulfuric acid and causes severe burns.\n\n1. Park the truck in the charging area. Turn the key to OFF.\n2. Open the battery cover to vent the battery during charging.\n3. Plug the charger cord into a grounded 120 V, 15 A receptacle. Do not use an extension cord.\n4. The charger starts automatically. Truck travel is disabled while the cord is plugged in.\n5. Charge until the green LED lights steadily, typically 8 to 10 hours. Do not interrupt the charge.\n6. Unplug the cord and stow it. Allow the battery to cool for 8 hours before heavy use, where possible.\n7. Water the battery if required (Section 6.3), only after charging.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 7,
+          "end_page": 8,
+          "cited_text": "1.5 Battery hazards\r\nDANGER\r\nLead-acid batteries produce hydrogen gas while charging, which can explode. Charge the BL-EPT45-L\r\nonly in a ventilated area away from sparks and flames. Battery electrolyte is sulfuric acid and causes\r\nsevere burns.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Battery compartment and onboard charger (BL-EPT45-L)\r\n1 Battery, 12 cells 4 Onboard charger\r\n2 Cell vent cap 5 Charger LEDs\r\n3 Battery connector SB175 6 Charger power cord\r\n1 Park the truck in the charging area. Turn the key to OFF.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "2 Open the battery cover to vent the battery during charging.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "3 Plug the charger cord into a grounded 120 V, 15 A receptacle. Do not use an extension cord.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "4 The charger starts automatically. Truck travel is disabled while the cord is plugged in.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "5 Charge until the green LED lights steadily, typically 8 to 10 hours. Do not interrupt the charge.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "6 Unplug the cord and stow it. Allow the battery to cool for 8 hours before heavy use, where possible.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "7 Water the battery if required (Section 6.3), only after charging."
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 9.3
+    },
+    {
+      "id": "lift-04",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What is the rated capacity of the LiftLine EPT-45?",
+      "answer": "Rated capacity at 24 in load center: 4,500 lb (2,040 kg), for both 48 in and 60 in forks. Never exceed the rated capacity on the capacity plate. Capacity falls when the load center is more than 24 in (600 mm) from the fork heel (Table 2-3).",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 8,
+          "end_page": 9,
+          "cited_text": "Performance and dimensions\r\nItem 48 in forks 60 in forks\r\nRated capacity at 24 in load center 4,500 lb (2,040 kg) 4,500 lb (2,040 kg)\r\nFork length 48 in (1,220 mm) 60 in (1,525 mm)\r\nOverall fork width 27 in (685 mm) 27 in (685 mm)\r\nSingle fork width 6.3 in (160 mm) 6.3 in (160 mm)\r\nLowered fork height 3.15 in (80 mm) 3.15 in (80 mm)\r\nLift height 7.5 in (190 mm) 7.5 in (190 mm)\r\nOverall length 70.5 in (1,790 mm) 82.5 in (2,095 mm)\r\nTurning radius 61.4 in (1,560 mm) 73.4 in (1,865 mm)\r\nRight-angle stack aisle, 40 x 48 in pallet 79 in (2,005 mm) 91 in (2,310 mm)\r\nTravel speed loaded / unloaded 3.4 / 3.7 mph (5.5 / 6.0 km/h) 3.4 / 3.7 mph (5.5 / 6.0 km/h)\r\nCreep speed 0.6 mph (1.0 km/h) 0.6 mph (1.0 km/h)\r\nLift speed loaded / unloaded 1.6 / 2.4 in/s (40 / 60 mm/s) 1.6 / 2.4 in/s (40 / 60 mm/s)\r\nMaximum grade loaded / unloaded 6% / 15% 6% / 15%\r\nDrive motor 1.5 kW AC, S2 60 min 1.5 kW AC, S2 60 min\r\nLift motor 1.2 kW DC, S3 10% 1.2 kW DC, S3 10%"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "1.3 Loads\r\nWARNING\r\nNever exceed the rated capacity on the capacity plate. Capacity falls when the load center is more\r\nthan 24 in (600 mm) from the fork heel (Table 2-3).\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 12.1
+    },
+    {
+      "id": "lift-05",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What is the maximum load on the LiftLine EPT-45 at a 30 in load center?",
+      "answer": "30 in (760 mm): 3,600 lb (1,630 kg). Capacity is the same for both battery models.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 9,
+          "end_page": 10,
+          "cited_text": "Capacity by load center\r\nLoad center Maximum load\r\n24 in (600 mm) 4,500 lb (2,040 kg)\r\n30 in (760 mm) 3,600 lb (1,630 kg)\r\n36 in (915 mm) 3,000 lb (1,360 kg)\r\nMore than 36 in Not permitted"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 9,
+          "end_page": 10,
+          "cited_text": "Capacity is the same for both battery models.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.0
+    },
+    {
+      "id": "lift-06",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What torque do the drive wheel nuts on the LiftLine EPT-45 take?",
+      "answer": "Drive wheel nuts 62 lbf-ft (84 N·m)",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 26,
+          "end_page": 27,
+          "cited_text": "Torque values\r\nFastener Torque\r\nDrive wheel nuts 62 lbf-ft (84 N·m)\r\nLoad roller axle bolts 35 lbf-ft (47 N·m)\r\nDrive unit to chassis 48 lbf-ft (65 N·m)\r\nTiller pivot bolt 30 lbf-ft (41 N·m)\r\nBattery cable lugs, M8 7 lbf-ft (9.5 N·m)\r\nContactor terminals, M6 4 lbf-ft (5.4 N·m)\r\nLift cylinder mounting 40 lbf-ft (54 N·m)\r\n7.8 Planned maintenance inspection\r\nEvery 250 hours, a trained technician should complete the planned maintenance inspection below in addition to the\r\ntasks in Table 7-1. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.8
+    },
+    {
+      "id": "lift-07",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What is the maximum grade for the LiftLine EPT-45 with a load?",
+      "answer": "Maximum grade: 6% loaded. With a load, travel with the load on the uphill side, going both up and down the grade. Never turn on a grade. Never park on a grade.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "Traveling on a grade\r\n• Maximum grade: 6% loaded, 15% unloaded. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "• With a load, travel with the load on the uphill side, going both up and down the grade.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "Never turn on a grade. Never park on a grade.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.3
+    },
+    {
+      "id": "lift-08",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "What does fault code E01 mean on the LiftLine EPT-45?",
+      "answer": "E01 is Controller overtemperature, on both models. Stop and allow the truck to cool for 15 minutes. Avoid long grades and plugging.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 29,
+          "end_page": 30,
+          "cited_text": "Fault codes\r\nCode Meaning Models Action\r\nE01 Controller overtemperature Both Stop and allow the truck to cool for 15 minutes. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 29,
+          "end_page": 30,
+          "cited_text": "Avoid long\r\ngrades and plugging.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.2
+    },
+    {
+      "id": "lift-09",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "What does the belly button on the LiftLine EPT-45 do?",
+      "answer": "The belly button at the end of the tiller head protects the operator from being pinned by the truck when traveling toward the operator. If the button is pressed, the truck immediately reverses direction for about 1 second and stops. The truck does not move again until the throttle is returned to neutral. Test the belly button at the start of every shift.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 12,
+          "end_page": 13,
+          "cited_text": "Belly button\r\nThe belly button at the end of the tiller head protects the operator from being pinned by the truck when traveling\r\ntoward the operator. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 12,
+          "end_page": 13,
+          "cited_text": "If the button is pressed, the truck immediately reverses direction for about 1 second and stops.\r\nThe truck does not move again until the throttle is returned to neutral. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 12,
+          "end_page": 13,
+          "cited_text": "Test the belly button at the start of every shift\r\n(Section 4.3).\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 10.8
+    },
+    {
+      "id": "lift-10",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "How do I park the LiftLine EPT-45?",
+      "answer": "1. Park on a level surface, out of aisles and away from exits, fire equipment and electrical panels.\n2. Lower the forks fully.\n3. Release the tiller so that the brake applies.\n4. Turn the key to OFF and remove it, or log out.\n5. Push the emergency disconnect if leaving the truck for more than a short time.\n\nNever turn on a grade. Never park on a grade.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "LiftLine EPT-45 Operator and Maintenance Manual | Issued October 2026 Page 19\r\n5.7 Parking\r\n1 Park on a level surface, out of aisles and away from exits, fire equipment and electrical panels.\r\n2 Lower the forks fully.\r\n3 Release the tiller so that the brake applies.\r\n4 Turn the key to OFF and remove it, or log out.\r\n5 Push the emergency disconnect if leaving the truck for more than a short time.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 18,
+          "end_page": 19,
+          "cited_text": "Never turn on a grade. Never park on a grade.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.2
+    },
+    {
+      "id": "lift-11",
+      "category": "safety_prerequisite",
+      "manual": "liftline-ept45",
+      "question": "How do I move the LiftLine EPT-45 if it cannot be driven?",
+      "answer": "WARNING: With the brake released, the truck can roll freely. Do not release the brake on a grade. Remove the release screws before returning the truck to service.\n\nFirst, lock out the truck by disconnecting the battery.\n\n1. If the truck cannot be driven, it can be moved a short distance by releasing the electromagnetic brake.\n2. Insert two M5 screws into the brake release holes and tighten them evenly until the brake frees.\n3. Push the truck slowly; there is no brake while released.\n4. Remove the screws immediately afterward. Do not tow the truck.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "WARNING\r\nWith the brake released, the truck can roll freely. Do not release the brake on a grade. Remove the\r\nrelease screws before returning the truck to service.\r\n"
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "Lock out the\r\ntruck by disconnecting the battery. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "5.8 Moving a disabled truck\r\nIf the truck cannot be driven, it can be moved a short distance by releasing the electromagnetic brake. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "Insert two M5 screws into the brake release holes and tighten them evenly until\r\nthe brake frees. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "Push the truck slowly; there is no brake while released. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 19,
+          "end_page": 20,
+          "cited_text": "Remove the screws immediately afterward. Do\r\nnot tow the truck.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [
+        "Prerequisite after the steps: disconnecting the battery"
+      ],
+      "passed": false,
+      "seconds": 5.5
+    },
+    {
+      "id": "lift-12",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "The forks on the LiftLine EPT-45 will not lift. What should I check?",
+      "answer": "Possible causes and remedies, from Table 8-1 item 5 \"Forks do not lift\":\n\n1. Battery below 20% (last bar flashing) — Charge.\n2. Load over capacity — reduce load.\n3. Hydraulic oil low — add oil.\n4. Lift fuse F3 blown — replace F3.\n\nIf a fault code is shown, look it up in Table 8-2 first. If the remedy does not clear the fault, tag the truck out of service and contact an authorized Brennvik service center. Electrical tests inside the truck must be done by a trained technician.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Symptom Possible cause Remedy\r\n1 Display does not light Emergency disconnect pushed; key OFF; battery\r\ndisconnected; main fuse F1 blown; battery fully\r\ndischarged\r\nPull disconnect; turn key; connect battery;\r\nreplace F1 after finding the cause; charge\r\n2 Display lights, truck does not\r\nmove\r\nTiller in brake zone; charger cord plugged in\r\n(BL-EPT45-L); belly button not reset; fault code\r\npresent\r\nLower tiller into operating zone; unplug cord;\r\nreturn throttle to neutral; see Table 8-2\r\n3 Truck moves only at creep\r\nspeed\r\nCreep button stuck; battery below 20%;\r\ncontroller temperature high\r\nCheck button; charge; let truck cool\r\n4 Truck drives in one direction\r\nonly\r\nThrottle fault; wiring fault in tiller head Contact service\r\n5 Forks do not lift Battery below 20% (last bar flashing); load over\r\ncapacity; hydraulic oil low; lift fuse F3 blown\r\nCharge; reduce load; add oil; replace F3\r\n6 Forks lift slowly Low battery; low oil; oil too cold or wrong grade Charge; add oil; use correct grade\r\n7 Forks lower by themselves Lowering valve dirty or worn; cylinder seal\r\nleaking\r\nContact service\r\n8 Forks do not lower Lowering valve coil fault; mechanical obstruction Check for obstruction; contact service\r\n9 Brake does not release, motor\r\nstrains\r\nBrake coil fault; brake air gap too small Check coil resistance (Table 7-3); contact\r\nservice\r\n10 Truck does not stop when tiller\r\nreleased\r\nGas spring weak; brake worn Remove from service immediately. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 28,
+          "end_page": 29,
+          "cited_text": "Troubleshooting\r\nIf a fault code is shown, look it up in Table 8-2 first. If the remedy does not clear the fault, tag the truck out of service\r\nand contact an authorized Brennvik service center. Electrical tests inside the truck must be done by a trained\r\ntechnician.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.2
+    },
+    {
+      "id": "lift-13",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What hydraulic oil does the LiftLine EPT-45 use and how much does it take?",
+      "answer": "Hydraulic oil: Anti-wear hydraulic oil ISO VG 32. Below 32 °F (0 °C): ISO VG 22. Quantity 0.5 US gal (1.9 L).",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 23,
+          "end_page": 24,
+          "cited_text": "Lubricants and fluids\r\nItem Specification Quantity\r\nHydraulic oil Anti-wear hydraulic oil ISO VG 32. Below 32 °F (0 °C): ISO VG 22. 0.5 US gal (1.9 L)\r\nDrive gearbox oil Gear oil SAE 80W-90 GL-5 17 fl oz (0.5 L)\r\nGrease Lithium complex grease NLGI 2 As needed\r\nBattery water (BL-EPT45-L) Distilled or deionized water As needed\r\nHydraulic oil level\r\nWith the forks fully lowered, remove the reservoir cap. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.0
+    },
+    {
+      "id": "lift-14",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What is the maximum brake air gap on the LiftLine EPT-45?",
+      "answer": "Air gap, maximum 0.020 in (0.5 mm). If the air gap is greater than the maximum, adjust it with the three adjusting nuts to the new value.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Brake data\r\nItem Value\r\nAir gap, new 0.008 to 0.012 in (0.2 to 0.3 mm)\r\nAir gap, maximum 0.020 in (0.5 mm)\r\nFriction disc minimum thickness 0.27 in (7.0 mm)\r\nCoil voltage 24 V DC\r\nCoil resistance at 68 °F (20 °C) 36 to 40 ohm\r\nIf the air gap is greater than the maximum, adjust it with the three adjusting nuts to the new value. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Brake data\r\nItem Value\r\nAir gap, new 0.008 to 0.012 in (0.2 to 0.3 mm)\r\nAir gap, maximum 0.020 in (0.5 mm)\r\nFriction disc minimum thickness 0.27 in (7.0 mm)\r\nCoil voltage 24 V DC\r\nCoil resistance at 68 °F (20 °C) 36 to 40 ohm\r\nIf the air gap is greater than the maximum, adjust it with the three adjusting nuts to the new value. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.0
+    },
+    {
+      "id": "lift-15",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "When should the drive wheel on the LiftLine EPT-45 be replaced?",
+      "answer": "Drive wheel: new diameter 9.1 in (230 mm), replace at 8.5 in (215 mm) or tread separating from hub. Also replace wheels that are chunked, cracked or worn below the limits in Table 7-4.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Wheel wear limits\r\nWheel New diameter Replace at\r\nDrive wheel 9.1 in (230 mm) 8.5 in (215 mm) or tread separating from hub\r\nLoad roller 3.3 in (85 mm) 3.0 in (76 mm) or flat spots over 0.1 in (3 mm)\r\nFork entry roller 2.8 in (70 mm) 2.5 in (64 mm)\r\nCaster (if fitted) 4.9 in (125 mm) 4.5 in (115 mm)\r\n7.6 Electrical connections\r\nCheck the battery connector for burned or discolored contacts and cracked housings. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 25,
+          "end_page": 26,
+          "cited_text": "Replace wheels that are chunked, cracked\r\nor worn below the limits in Table 7-4.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.3
+    },
+    {
+      "id": "lift-16",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "What is the rating of the main fuse F1 on the LiftLine EPT-45?",
+      "answer": "F1 175 A, main power circuit, next to contactor K1. Replace a fuse only with a fuse of the same rating. A fuse that blows again after replacement indicates a fault.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 32,
+          "end_page": 33,
+          "cited_text": "Fuses\r\nFuse Rating Protects Location\r\nF1 175 A Main power circuit Next to contactor K1\r\nF2 10 A Control circuit, key switch, display, horn Fuse holder on controller panel\r\nF3 150 A Lift pump motor On lift contactor K2\r\nReplace a fuse only with a fuse of the same rating. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 32,
+          "end_page": 33,
+          "cited_text": "Fuses\r\nFuse Rating Protects Location\r\nF1 175 A Main power circuit Next to contactor K1\r\nF2 10 A Control circuit, key switch, display, horn Fuse holder on controller panel\r\nF3 150 A Lift pump motor On lift contactor K2\r\nReplace a fuse only with a fuse of the same rating. A fuse that blows again after replacement indicates a fault. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 6.3
+    },
+    {
+      "id": "lift-17",
+      "category": "answerable",
+      "manual": "liftline-ept45",
+      "question": "Can someone ride on the forks of the LiftLine EPT-45?",
+      "answer": "Do not allow anyone to ride on the truck or the forks.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 6,
+          "end_page": 7,
+          "cited_text": "• Do not allow anyone to ride on the truck or the forks.\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.2
+    },
+    {
+      "id": "lift-18",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "At what battery charge does the LiftLine EPT-45 stop lifting?",
+      "answer": "At 20% charge the last bar flashes and lifting is disabled. Travel is still possible so that you can drive to the charger. Do not continue working.",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Battery and charging\r\n6.1 Battery discharge indicator\r\nThe display shows battery charge with five bars. At 20% charge the last bar flashes and lifting is disabled. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 20,
+          "end_page": 21,
+          "cited_text": "Travel is still\r\npossible so that you can drive to the charger. Do not continue working. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.6
+    },
+    {
+      "id": "lift-19",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "How should I store the BL-EPT45-LI battery for more than 30 days?",
+      "answer": "For storage longer than 30 days, charge the BL-EPT45-LI battery to 40 to 60%, push the emergency disconnect and turn the key to OFF. The BMS draws a small current. Recharge to 50% every 3 months. Store between 32 and 95 °F (0 to 35 °C).",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 22,
+          "end_page": 23,
+          "cited_text": "6.6 Lithium battery storage\r\nFor storage longer than 30 days, charge the BL-EPT45-LI battery to 40 to 60%, push the emergency disconnect and\r\nturn the key to OFF. The BMS draws a small current. Recharge to 50% every 3 months. Store between 32 and 95 °F (0\r\nto 35 °C).\r\n"
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.6
+    },
+    {
+      "id": "lift-20",
+      "category": "numeric",
+      "manual": "liftline-ept45",
+      "question": "How often is planned maintenance due on the LiftLine EPT-45?",
+      "answer": "Every 250 hours, a trained technician should complete the planned maintenance inspection below in addition to the tasks in Table 7-1. The display also shows a wrench symbol: Service due (every 250 hours).",
+      "citations": [
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 26,
+          "end_page": 27,
+          "cited_text": "Torque values\r\nFastener Torque\r\nDrive wheel nuts 62 lbf-ft (84 N·m)\r\nLoad roller axle bolts 35 lbf-ft (47 N·m)\r\nDrive unit to chassis 48 lbf-ft (65 N·m)\r\nTiller pivot bolt 30 lbf-ft (41 N·m)\r\nBattery cable lugs, M8 7 lbf-ft (9.5 N·m)\r\nContactor terminals, M6 4 lbf-ft (5.4 N·m)\r\nLift cylinder mounting 40 lbf-ft (54 N·m)\r\n7.8 Planned maintenance inspection\r\nEvery 250 hours, a trained technician should complete the planned maintenance inspection below in addition to the\r\ntasks in Table 7-1. "
+        },
+        {
+          "document": "LiftLine EPT-45 pallet truck manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "Wrench symbol Service due (every 250 hours). "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 3.1
+    },
+    {
+      "id": "amb-01",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "How do I drain it?",
+      "answer": "Which machine do you mean: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck?",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.3
+    },
+    {
+      "id": "amb-02",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "How do I start this machine?",
+      "answer": "Which machine do you mean: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck?",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.3
+    },
+    {
+      "id": "amb-03",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "What should I inspect on this equipment before a shift?",
+      "answer": "Which machine do you mean: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck?",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.3
+    },
+    {
+      "id": "amb-04",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "What is the recommended tire pressure for a Toyota forklift?",
+      "answer": "Which machine do you mean: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck?",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.3
+    },
+    {
+      "id": "amb-05",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "Can I run the welder from the compressor circuit?",
+      "answer": "Ask about one machine at a time: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck.",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.3
+    },
+    {
+      "id": "amb-06",
+      "category": "ambiguous_equipment",
+      "manual": "",
+      "question": "Which needs more clearance, the ArcLine 215 or the AirLine C60?",
+      "answer": "Ask about one machine at a time: the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck.",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 0.4
+    },
+    {
+      "id": "amb-07",
+      "category": "ambiguous_equipment",
+      "manual": "airline-c60",
+      "question": "What breaker do I need for the AirLine C60?",
+      "answer": "Table 4-1 lists the time-delay fuse or inverse-time circuit breaker separately by model and supply. Which applies: BA-C60-1 230 V, BA-C60-3 208 V, BA-C60-3 230 V, or BA-C60-3 460 V?",
+      "citations": [
+        {
+          "document": "AirLine C60 compressor manual",
+          "start_page": 14,
+          "end_page": 15,
+          "cited_text": "Electrical service guide\r\nItem BA-C60-1 230 V BA-C60-3 208 V BA-C60-3 230 V BA-C60-3 460 V\r\nSupply 230 V, 1-phase, 60 Hz 208 V, 3-phase, 60 Hz 230 V, 3-phase, 60 Hz 460 V, 3-phase, 60 Hz\r\nVoltage tolerance 207 to 253 V 187 to 229 V 207 to 253 V 414 to 506 V\r\nTime-delay fuse or inverse-time circuit\r\nbreaker\r\n40 A 25 A 25 A 15 A\r\nMinimum copper conductor size, up to\r\n50 ft (15 m)\r\n8 AWG 10 AWG 10 AWG 14 AWG\r\nMinimum copper conductor size, 50 to\r\n100 ft (15 to 30 m)\r\n6 AWG 8 AWG 10 AWG 12 AWG\r\nGrounding conductor 10 AWG 10 AWG 10 AWG 12 AWG\r\nDisconnect Fused or breaker\r\ndisconnect within\r\nsight of the\r\ncompressor\r\nSame Same Same\r\nStarter Not required Factory mounted Factory mounted Factory mounted,\r\nreconnect coil\r\ntransformer\r\nBranch circuit lengths over 100 ft (30 m) require voltage drop calculation by the electrician. "
+        }
+      ],
+      "refused": false,
+      "complete": true,
+      "failures": [
+        "Clarification carried citations"
+      ],
+      "passed": false,
+      "seconds": 3.9
+    },
+    {
+      "id": "amb-08",
+      "category": "ambiguous_equipment",
+      "manual": "liftline-ept45",
+      "question": "How do I charge the LiftLine battery?",
+      "answer": "Which model is it? The manual gives charging separately for the BL-EPT45-L (lead-acid, onboard charger) and the BL-EPT45-LI (lithium-ion, external BL-CHG-LI100 charger).",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [
+        "Clarification picked a value: BL-CHG-LI100"
+      ],
+      "passed": false,
+      "seconds": 4.4
+    },
+    {
+      "id": "amb-09",
+      "category": "ambiguous_equipment",
+      "manual": "arcline-215",
+      "question": "What breaker do I need for the ArcLine 215?",
+      "answer": "Which applies: BW-215 at 230 V, BW-215DV at 230 V, or BW-215DV at 120 V?",
+      "citations": [],
+      "refused": false,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 4.7
+    },
+    {
+      "id": "ref-01",
+      "category": "must_refuse",
+      "manual": "airline-c60",
+      "question": "What is the piston ring end gap on the AirLine C60 pump?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.5
+    },
+    {
+      "id": "ref-02",
+      "category": "must_refuse",
+      "manual": "liftline-ept45",
+      "question": "What is the recommended tire pressure for the LiftLine EPT-45?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.7
+    },
+    {
+      "id": "ref-03",
+      "category": "must_refuse",
+      "manual": "liftline-ept45",
+      "question": "How do I change the hydraulic oil on a Crown pallet jack?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.3
+    },
+    {
+      "id": "ref-04",
+      "category": "must_refuse",
+      "manual": "liftline-ept45",
+      "question": "What is the rated capacity of the LiftLine EPT-60?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 9.2
+    },
+    {
+      "id": "ref-05",
+      "category": "must_refuse",
+      "manual": "liftline-ept45",
+      "question": "What is the maximum altitude for the LiftLine EPT-45?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.4
+    },
+    {
+      "id": "ref-06",
+      "category": "must_refuse",
+      "manual": "airline-c60",
+      "question": "How much refrigerant does the AirLine C60 BA-RD-20 air dryer hold?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.9
+    },
+    {
+      "id": "ref-07",
+      "category": "must_refuse",
+      "manual": "airline-c60",
+      "question": "What torque does the AirLine C60 tank drain valve take?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 8.7
+    },
+    {
+      "id": "ref-08",
+      "category": "must_refuse",
+      "manual": "arcline-215",
+      "question": "How much does the ArcLine 215 BSG-10 spool gun weigh?",
+      "answer": "I don't know. That isn't in the manuals I have.",
+      "citations": [],
+      "refused": true,
+      "complete": true,
+      "failures": [],
+      "passed": true,
+      "seconds": 2.5
+    }
+  ]
+}
