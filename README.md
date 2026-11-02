@@ -17,11 +17,11 @@ Questions fall into five categories:
 
 | Category | Count | Passes when |
 |---|---:|---|
-| `answerable` | 16 | not refused, cited page matches, every citation from the expected manual, required terms present |
-| `numeric` | 29 | as answerable, plus the exact value from the manual |
-| `safety_prerequisite` | 9 | as answerable, plus every stated prerequisite appears before the second numbered step, in a warning above the list or in step 1 |
-| `ambiguous_equipment` | 9 | the expected clarification, no citations (see below) |
-| `must_refuse` | 8 | the exact refusal sentence, no citations |
+| `answerable` | 23 | not refused, cited page matches, every citation from the expected manual, required terms present |
+| `numeric` | 34 | as answerable, plus the exact value from the manual |
+| `safety_prerequisite` | 11 | as answerable, plus every stated prerequisite appears before the second numbered step, in a warning above the list or in step 1 |
+| `ambiguous_equipment` | 11 | the expected clarification, no citations (see below) |
+| `must_refuse` | 10 | the exact refusal sentence, no citations |
 
 The clarification cases come in three kinds, set by `expected_clarification`:
 
@@ -34,8 +34,8 @@ Every `must_refuse` question names one Brennvik machine, so the request reaches 
 ## Files
 
 - `manuals.json`: the four manuals with document number, model variants, PDF page count, size and SHA-256. The PDFs are not committed; the demo serves them at the `demo_url` of each entry without a password, and the hashes let you confirm you have the same files the demo uses.
-- `questions.jsonl`: one record per question with `id`, `manual`, `category`, `question`, `expected_pdf_pages` (PDF page positions including the cover; the printed page number is the same on all four manuals), `expected_value` for numeric items copied exactly from the source, optional `must_include` and `must_exclude` terms, optional `prerequisite_terms` for safety items, `expected_clarification` for clarification items, and `notes` recording where the fact sits in the manual.
-- `score.py`: posts each question to the demo, scores the response and writes the results. Python 3, standard library only.
+- `questions.jsonl`: one record per question with `id`, `manual`, `category`, `question`, `expected_pdf_pages` (PDF page positions including the cover; the printed page number is the same on all four manuals), `acceptable_pdf_pages` for cited items (every other page an answer may legitimately cite: the section warning, the safety subsection that applies, a table that repeats the value, the troubleshooting row, the parts entry), `expected_value` for numeric items copied exactly from the source, optional `must_include` and `must_exclude` terms, optional `prerequisite_terms` for safety items, `expected_clarification` for clarification items, and `notes` recording where the fact sits in the manual.
+- `score.py`: posts each question to the demo, scores the response, computes the metrics and writes the results. Python 3, standard library only.
 - `tests/test_score.py`: unit tests for the scoring rules against sample responses. Run `python -m unittest discover -s tests`.
 - `results/`: one JSON and one Markdown file per dated run, with the demo commit recorded. Real numbers, including failures.
 - `LICENSE`: MIT, for the code. `LICENSE-DATA`: CC BY 4.0, for the question set and manifest.
@@ -61,9 +61,28 @@ The demo returns `{"segments": [{"text", "citations": [{"documentTitle", "startP
 
 Terms in `must_include`, `must_exclude` and `prerequisite_terms` are matched case-insensitively on whole words, so "BL-EPT45-L" is not satisfied by "BL-EPT45-LI". Numeric values accept the manual's range notation written with "to", a hyphen or an en dash, and nothing else.
 
+## Metrics
+
+Pass or fail per item is the headline, because one safety miss should not be averaged away by good citations elsewhere. Alongside it, each results file carries a `metrics` block computed by rules from the stored answers, under the names the industry uses for retrieval-grounded answering:
+
+| Metric | Definition here | Common name elsewhere |
+|---|---|---|
+| Citation precision | on-target cited pages over cited pages, averaged per answer; a page is on target when it is in `expected_pdf_pages` or `acceptable_pdf_pages` | context precision (Ragas), context relevance (TruLens) |
+| Citation hit rate | answers that cite at least one expected page | context recall, hit rate |
+| Exact value rate | numeric answers containing the value as the manual prints it | exact match |
+| Prerequisites first | safety answers with every prerequisite present and before the steps | no standard equivalent |
+| Abstention rate | unanswerable questions met with the exact refusal sentence | abstention accuracy, hallucination rate on unanswerable items |
+| False refusal rate | answerable questions refused | over-refusal |
+| Clarification rate | ambiguous questions met with a question and no picked value | answerability |
+| Latency | p50 and p95 seconds to a complete answer | latency |
+
+Two industry metrics are not in the files: faithfulness (every claim in the answer supported by the cited page) and completeness (every item of the reference answer present). Both need a reader, human or model, and a model judge is only trustworthy once its scores agree with human marks on the same answers. Those two will appear in a results file when that calibration exists, labelled as judged, never as rule-checked.
+
+`python score.py --metrics-from results/YYYY-MM-DD.json` adds the block and the per-answer `pages_on_target` and `pages_off_target` lists to an existing run from its stored answers. Pass and fail are left exactly as produced. The 21 October and 2 November files received their blocks this way on 2 November 2026, after `acceptable_pdf_pages` was marked by hand against the page text of all four manuals.
+
 ## What a score does not prove
 
-A passing score does not certify answers as safe or complete, and it is not a release criterion for any plant. The set checks known behaviours on these four documents: the right page, the exact value, a refusal where the manual is silent, and a question where the machine or model is unnamed. It does not establish semantic correctness for arbitrary questions, and it says nothing about other documents, other equipment or other deployments.
+A passing score does not certify answers as safe or complete, and it is not a release criterion for any plant. The set checks known behaviours on these four documents: the right page, the exact value, a refusal where the manual is silent, and a question where the machine or model is unnamed. The metrics describe the same answers in finer grain; they do not add a judgement the rules cannot make. It does not establish semantic correctness for arbitrary questions, and it says nothing about other documents, other equipment or other deployments.
 
 Model responses vary between runs. The dated results record one run against one demo commit.
 
