@@ -3,6 +3,7 @@
 
 Usage:
   EVAL_PASSWORD=... python score.py [--endpoint https://demo.aitechmagic.com] [--demo-commit <sha>] [--only id,id] [--dry-run]
+  python score.py --metrics-from results/YYYY-MM-DD.json   # add the metrics block to a stored run
 
 Environment:
   EVAL_ENDPOINT   base URL of the demo (default https://demo.aitechmagic.com); --endpoint overrides it
@@ -239,6 +240,112 @@ def steps_limit(answer, must_include):
     positions = [term_position(t, answer) for t in must_include]
     return min([p for p in positions if p >= 0], default=None)
 
+def percentile(values, share):
+    """Nearest-rank percentile of a list of numbers; None when empty."""
+    if not values:
+        return None
+    ordered = sorted(values)
+    rank = max(1, int(round(share * len(ordered) + 0.5)))
+    return ordered[min(rank, len(ordered)) - 1]
+
+
+def page_targets(question, citations):
+    """Split the cited pages into on-target (expected or acceptable for this question) and off-target."""
+    allowed = set(question.get("expected_pdf_pages") or []) | set(question.get("acceptable_pdf_pages") or [])
+    cited = pages_cited(citations)
+    return sorted(cited & allowed), sorted(cited - allowed)
+
+
+def metrics(results, questions):
+    """Industry-style metrics computed from the stored answers. Rules only; no model judges anything here.
+
+    citation_precision   on-target cited pages / cited pages, averaged per answer (Ragas: context precision)
+    citation_hit_rate    answers that cite at least one expected page (the pass rule for cited categories)
+    exact_value_rate     numeric answers that contain the expected value as the manual prints it
+    prerequisite_first   safety answers with every prerequisite present and before the steps
+    abstention_rate      unanswerable questions met with the exact refusal sentence
+    false_refusal_rate   answerable questions refused
+    clarification_rate   ambiguous questions met with a question and no picked value
+    latency_s            p50 and p95 of the time to a complete answer
+    """
+    by_id = {q["id"]: q for q in questions}
+    cited_rows = [r for r in results if r["category"] in CITED and by_id.get(r["id"])]
+    per_answer, on_total, cited_total, hits = [], 0, 0, 0
+    for r in cited_rows:
+        q = by_id[r["id"]]
+        on, off = page_targets(q, r["citations"])
+        cited = len(on) + len(off)
+        if cited:
+            per_answer.append(len(on) / cited)
+            on_total += len(on)
+            cited_total += cited
+        if set(q.get("expected_pdf_pages") or []) & pages_cited(r["citations"]):
+            hits += 1
+    numeric = [r for r in results if r["category"] == "numeric" and by_id.get(r["id"])]
+    safety = [r for r in results if r["category"] == "safety_prerequisite"]
+    refuse = [r for r in results if r["category"] == "must_refuse"]
+    answerable = [r for r in results if r["category"] != "must_refuse"]
+    ambiguous = [r for r in results if r["category"] == "ambiguous_equipment"]
+
+    def rate(count, total):
+        return round(count / total, 3) if total else None
+
+    exact = sum(1 for r in numeric if value_matches(by_id[r["id"]]["expected_value"], r["answer"]))
+    prereq = sum(1 for r in safety if not any(f.startswith(("Missing prerequisite", "Prerequisite after")) for f in r["failures"]))
+    clarified = sum(1 for r in ambiguous if not any(f.startswith(("No clarifying", "Clarification picked", "Refused instead", "Expected the exact")) for f in r["failures"]))
+    seconds = [r["seconds"] for r in results if r.get("complete") and r.get("answer")]
+    return {
+        "citation_precision": {"value": rate(sum(per_answer), len(per_answer)), "pages_on_target": on_total, "pages_cited": cited_total, "answers": len(per_answer)},
+        "citation_hit_rate": {"value": rate(hits, len(cited_rows)), "hits": hits, "answers": len(cited_rows)},
+        "exact_value_rate": {"value": rate(exact, len(numeric)), "exact": exact, "answers": len(numeric)},
+        "prerequisite_first": {"value": rate(prereq, len(safety)), "first": prereq, "answers": len(safety)},
+        "abstention_rate": {"value": rate(sum(1 for r in refuse if r["refused"]), len(refuse)), "refused": sum(1 for r in refuse if r["refused"]), "answers": len(refuse)},
+        "false_refusal_rate": {"value": rate(sum(1 for r in answerable if r["refused"]), len(answerable)), "refused": sum(1 for r in answerable if r["refused"]), "answers": len(answerable)},
+        "clarification_rate": {"value": rate(clarified, len(ambiguous)), "clarified": clarified, "answers": len(ambiguous)},
+        "latency_s": {"p50": percentile(seconds, 0.5), "p95": percentile(seconds, 0.95), "answers": len(seconds)},
+        "not_rule_checkable": ["faithfulness", "completeness"],
+    }
+
+
+METRIC_LABELS = [
+    ("citation_precision", "Citation precision", "on-target cited pages over cited pages, per answer"),
+    ("citation_hit_rate", "Citation hit rate", "answers citing at least one expected page"),
+    ("exact_value_rate", "Exact value rate", "numeric answers with the value as printed"),
+    ("prerequisite_first", "Prerequisites first", "safety answers with every prerequisite before the steps"),
+    ("abstention_rate", "Abstention rate", "unanswerable questions refused with the exact sentence"),
+    ("false_refusal_rate", "False refusal rate", "answerable questions refused"),
+    ("clarification_rate", "Clarification rate", "ambiguous questions met with a question, no value picked"),
+]
+
+
+def metrics_lines(m):
+    lines = ["## Metrics", "", "Rule-computed from the stored answers. Faithfulness and completeness need a judge and are not in this file.", "", "| Metric | Value | Basis |", "|---|---:|---|"]
+    for key, label, basis in METRIC_LABELS:
+        row = m[key]
+        value = row["value"]
+        shown = "n/a" if value is None else f"{value * 100:.0f}%"
+        counts = {k: v for k, v in row.items() if k != "value"}
+        lines.append(f"| {label} | {shown} | {basis}: " + ", ".join(f"{k} {v}" for k, v in counts.items()) + " |")
+    lat = m["latency_s"]
+    if lat["p50"] is not None:
+        lines.append(f"| Latency | p50 {lat['p50']:.1f} s, p95 {lat['p95']:.1f} s | {lat['answers']} complete answers |")
+    return lines
+
+
+def write_markdown(md_path, lines, metric_block):
+    body = "\n".join(lines)
+    marker = "## Metrics"
+    if marker in body:
+        head, _, tail = body.partition(marker)
+        tail = tail.split("\n## ", 1)
+        rest = ("\n## " + tail[1]) if len(tail) > 1 else ""
+        body = head.rstrip("\n") + "\n\n" + "\n".join(metric_block) + "\n" + rest
+    else:
+        parts = body.split("\nA passing score", 1)
+        body = parts[0].rstrip("\n") + "\n\n" + "\n".join(metric_block) + "\n" + ("\nA passing score" + parts[1] if len(parts) > 1 else "")
+    with open(md_path, "w", encoding="utf-8") as handle:
+        handle.write(body if body.endswith("\n") else body + "\n")
+
 
 class Client:
     def __init__(self, base, password):
@@ -257,6 +364,29 @@ class Client:
             return json.load(response)
 
 
+def add_metrics(json_path, questions):
+    """Recompute on/off-target pages and the metrics block for a stored run. Nothing about pass/fail changes."""
+    with open(json_path, encoding="utf-8") as handle:
+        summary = json.load(handle)
+    by_id = {q["id"]: q for q in questions}
+    for r in summary["results"]:
+        q = by_id.get(r["id"])
+        if q and r["category"] in CITED:
+            r["pages_on_target"], r["pages_off_target"] = page_targets(q, r["citations"])
+    summary["metrics"] = metrics(summary["results"], questions)
+    ordered = {k: summary[k] for k in summary if k != "results"}
+    ordered["results"] = summary["results"]
+    with open(json_path, "w", encoding="utf-8") as handle:
+        json.dump(ordered, handle, indent=2, ensure_ascii=False)
+    md_path = os.path.splitext(json_path)[0] + ".md"
+    with open(md_path, encoding="utf-8") as handle:
+        lines = handle.read().split("\n")
+    write_markdown(md_path, lines, metrics_lines(summary["metrics"]))
+    for line in metrics_lines(summary["metrics"])[4:]:
+        print(line, file=sys.stderr)
+    return 0
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--endpoint", default=os.environ.get("EVAL_ENDPOINT", "https://demo.aitechmagic.com"))
@@ -264,6 +394,7 @@ def main():
     parser.add_argument("--only", default="", help="comma-separated question ids")
     parser.add_argument("--dry-run", action="store_true", help="validate the question set and print the plan without calling the endpoint")
     parser.add_argument("--date", default=dt.date.today().isoformat(), help="results file date, YYYY-MM-DD")
+    parser.add_argument("--metrics-from", default="", metavar="RESULTS_JSON", help="add the metrics block to an existing results file from its stored answers; pass/fail is left as produced")
     args = parser.parse_args()
 
     questions = load_questions(os.path.join(HERE, "questions.jsonl"))
@@ -278,6 +409,8 @@ def main():
     for q in questions:
         counts[q["category"]] = counts.get(q["category"], 0) + 1
     print(f"{len(questions)} questions: " + ", ".join(f"{k} {v}" for k, v in sorted(counts.items())), file=sys.stderr)
+    if args.metrics_from:
+        return add_metrics(args.metrics_from, questions)
     if args.dry_run:
         for q in questions:
             print(f"{q['id']:8} {q['category']:20} {q['question']}")
@@ -296,6 +429,7 @@ def main():
             answer, citations, refused, complete = normalise_response(data)
             record.update({"answer": answer, "citations": citations, "refused": refused, "complete": complete})
             record["failures"] = score(q, answer, citations, refused, complete, manuals)
+            record["pages_on_target"], record["pages_off_target"] = page_targets(q, citations)
         except urllib.error.HTTPError as error:
             detail = error.read().decode("utf-8", "replace")[:500]
             record.update({"answer": "", "citations": [], "refused": False, "complete": False, "failures": [f"HTTP {error.code}: {detail}"]})
@@ -315,6 +449,7 @@ def main():
         "questions": len(results),
         "passed": passed,
         "by_category": {c: {"passed": sum(1 for r in results if r["category"] == c and r["passed"]), "total": sum(1 for r in results if r["category"] == c)} for c in sorted(counts)},
+        "metrics": metrics(results, questions),
         "results": results,
     }
     os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
@@ -341,8 +476,7 @@ def main():
     for r in failures:
         lines.append(f"- `{r['id']}` ({r['category']}): " + "; ".join(r["failures"]))
     lines += ["", "A passing score measures citation, refusal, numeric fidelity and clarification on these four manuals only. It does not certify answers as safe or complete and is not a release criterion for any plant. Consult the original manual and qualified personnel before operating equipment.", ""]
-    with open(md_path, "w", encoding="utf-8") as handle:
-        handle.write("\n".join(lines))
+    write_markdown(md_path, lines, metrics_lines(summary["metrics"]))
     print(f"\n{passed} of {len(results)} passed. Wrote {json_path} and {md_path}", file=sys.stderr)
     return 0 if passed == len(results) else 1
 

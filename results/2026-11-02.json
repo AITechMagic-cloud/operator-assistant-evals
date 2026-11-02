@@ -26,6 +26,53 @@
       "total": 11
     }
   },
+  "metrics": {
+    "citation_precision": {
+      "value": 1.0,
+      "pages_on_target": 100,
+      "pages_cited": 100,
+      "answers": 68
+    },
+    "citation_hit_rate": {
+      "value": 1.0,
+      "hits": 68,
+      "answers": 68
+    },
+    "exact_value_rate": {
+      "value": 1.0,
+      "exact": 34,
+      "answers": 34
+    },
+    "prerequisite_first": {
+      "value": 1.0,
+      "first": 11,
+      "answers": 11
+    },
+    "abstention_rate": {
+      "value": 1.0,
+      "refused": 10,
+      "answers": 10
+    },
+    "false_refusal_rate": {
+      "value": 0.0,
+      "refused": 0,
+      "answers": 79
+    },
+    "clarification_rate": {
+      "value": 1.0,
+      "clarified": 11,
+      "answers": 11
+    },
+    "latency_s": {
+      "p50": 6.5,
+      "p95": 20.5,
+      "answers": 89
+    },
+    "not_rule_checkable": [
+      "faithfulness",
+      "completeness"
+    ]
+  },
   "results": [
     {
       "id": "air-01",
@@ -75,7 +122,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 17.9
+      "seconds": 17.9,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-02",
@@ -101,7 +152,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 31.3
+      "seconds": 31.3,
+      "pages_on_target": [
+        2,
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-03",
@@ -127,7 +183,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 20.3
+      "seconds": 20.3,
+      "pages_on_target": [
+        14
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-04",
@@ -153,7 +213,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 7.1
+      "seconds": 7.1,
+      "pages_on_target": [
+        14
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-05",
@@ -173,7 +237,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.8
+      "seconds": 4.8,
+      "pages_on_target": [
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-06",
@@ -205,7 +273,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.8
+      "seconds": 6.8,
+      "pages_on_target": [
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-07",
@@ -237,7 +309,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 13.5
+      "seconds": 13.5,
+      "pages_on_target": [
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-08",
@@ -263,7 +339,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.6
+      "seconds": 6.6,
+      "pages_on_target": [
+        20,
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-09",
@@ -307,7 +388,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 12.8
+      "seconds": 12.8,
+      "pages_on_target": [
+        6,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-10",
@@ -333,7 +419,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.5
+      "seconds": 8.5,
+      "pages_on_target": [
+        20,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-11",
@@ -365,7 +456,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.8
+      "seconds": 6.8,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-12",
@@ -391,7 +486,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.8
+      "seconds": 5.8,
+      "pages_on_target": [
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-13",
@@ -447,7 +546,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.3
+      "seconds": 10.3,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-14",
@@ -479,7 +582,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.4
+      "seconds": 6.4,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-15",
@@ -505,7 +612,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.4
+      "seconds": 6.4,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-16",
@@ -567,7 +678,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 12.1
+      "seconds": 12.1,
+      "pages_on_target": [
+        20,
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-01",
@@ -593,7 +709,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 11.3
+      "seconds": 11.3,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-02",
@@ -655,7 +775,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 22.9
+      "seconds": 22.9,
+      "pages_on_target": [
+        6,
+        17,
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-03",
@@ -687,7 +813,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.9
+      "seconds": 10.9,
+      "pages_on_target": [
+        15,
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-04",
@@ -707,7 +838,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.8
+      "seconds": 5.8,
+      "pages_on_target": [
+        9
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-05",
@@ -727,7 +862,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.6
+      "seconds": 10.6,
+      "pages_on_target": [
+        10
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-06",
@@ -753,7 +892,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.7
+      "seconds": 5.7,
+      "pages_on_target": [
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-07",
@@ -773,7 +916,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.7
+      "seconds": 5.7,
+      "pages_on_target": [
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-08",
@@ -799,7 +946,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.5
+      "seconds": 8.5,
+      "pages_on_target": [
+        17,
+        31
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-09",
@@ -855,7 +1007,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.1
+      "seconds": 10.1,
+      "pages_on_target": [
+        25,
+        30
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-10",
@@ -917,7 +1074,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.2
+      "seconds": 9.2,
+      "pages_on_target": [
+        27,
+        28
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-11",
@@ -961,7 +1123,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.3
+      "seconds": 8.3,
+      "pages_on_target": [
+        27,
+        29
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-12",
@@ -987,7 +1154,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 7.4
+      "seconds": 7.4,
+      "pages_on_target": [
+        10,
+        24
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-13",
@@ -1007,7 +1179,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.9
+      "seconds": 5.9,
+      "pages_on_target": [
+        11
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-14",
@@ -1027,7 +1203,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.8
+      "seconds": 4.8,
+      "pages_on_target": [
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-15",
@@ -1059,7 +1239,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.1
+      "seconds": 6.1,
+      "pages_on_target": [
+        6
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-16",
@@ -1079,7 +1263,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.4
+      "seconds": 5.4,
+      "pages_on_target": [
+        27
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-17",
@@ -1111,7 +1299,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.8
+      "seconds": 5.8,
+      "pages_on_target": [
+        16,
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-18",
@@ -1131,7 +1324,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.6
+      "seconds": 5.6,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-01",
@@ -1247,7 +1444,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 20.8
+      "seconds": 20.8,
+      "pages_on_target": [
+        7,
+        15,
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-02",
@@ -1303,7 +1506,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 22.4
+      "seconds": 22.4,
+      "pages_on_target": [
+        7,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-03",
@@ -1365,7 +1573,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.8
+      "seconds": 10.8,
+      "pages_on_target": [
+        7,
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-04",
@@ -1391,7 +1604,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.4
+      "seconds": 9.4,
+      "pages_on_target": [
+        6,
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-05",
@@ -1423,7 +1641,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.5
+      "seconds": 6.5,
+      "pages_on_target": [
+        6,
+        9
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-06",
@@ -1443,7 +1666,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.7
+      "seconds": 5.7,
+      "pages_on_target": [
+        26
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-07",
@@ -1475,7 +1702,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.5
+      "seconds": 9.5,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-08",
@@ -1501,7 +1732,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.8
+      "seconds": 6.8,
+      "pages_on_target": [
+        28,
+        29
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-09",
@@ -1527,7 +1763,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 7.9
+      "seconds": 7.9,
+      "pages_on_target": [
+        12
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-10",
@@ -1553,7 +1793,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.0
+      "seconds": 6.0,
+      "pages_on_target": [
+        18,
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-11",
@@ -1603,7 +1848,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.0
+      "seconds": 8.0,
+      "pages_on_target": [
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-12",
@@ -1671,7 +1920,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 18.3
+      "seconds": 18.3,
+      "pages_on_target": [
+        23,
+        28,
+        32
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-13",
@@ -1691,7 +1946,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.3
+      "seconds": 6.3,
+      "pages_on_target": [
+        23
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-14",
@@ -1723,7 +1982,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.5
+      "seconds": 6.5,
+      "pages_on_target": [
+        23,
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-15",
@@ -1749,7 +2013,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.4
+      "seconds": 5.4,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-16",
@@ -1775,7 +2043,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.4
+      "seconds": 5.4,
+      "pages_on_target": [
+        32
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-17",
@@ -1795,7 +2067,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.7
+      "seconds": 4.7,
+      "pages_on_target": [
+        6
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-18",
@@ -1821,7 +2097,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.7
+      "seconds": 5.7,
+      "pages_on_target": [
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-19",
@@ -1847,7 +2127,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.0
+      "seconds": 9.0,
+      "pages_on_target": [
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-20",
@@ -1873,7 +2157,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.3
+      "seconds": 5.3,
+      "pages_on_target": [
+        23,
+        26
+      ],
+      "pages_off_target": []
     },
     {
       "id": "amb-01",
@@ -2162,7 +2451,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 20.3
+      "seconds": 20.3,
+      "pages_on_target": [
+        18,
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-02",
@@ -2182,7 +2476,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.3
+      "seconds": 10.3,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-03",
@@ -2202,7 +2500,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.5
+      "seconds": 8.5,
+      "pages_on_target": [
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-04",
@@ -2230,7 +2532,11 @@
         "Missing: 4.5 bar g"
       ],
       "passed": false,
-      "seconds": 4.5
+      "seconds": 4.5,
+      "pages_on_target": [
+        27
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-05",
@@ -2250,7 +2556,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.6
+      "seconds": 5.6,
+      "pages_on_target": [
+        27
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-06",
@@ -2270,7 +2580,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.6
+      "seconds": 6.6,
+      "pages_on_target": [
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-07",
@@ -2320,7 +2634,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.2
+      "seconds": 8.2,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-08",
@@ -2406,7 +2724,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 20.5
+      "seconds": 20.5,
+      "pages_on_target": [
+        16,
+        22,
+        24
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-09",
@@ -2432,7 +2756,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.9
+      "seconds": 4.9,
+      "pages_on_target": [
+        23
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-10",
@@ -2470,7 +2798,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.8
+      "seconds": 9.8,
+      "pages_on_target": [
+        22,
+        23
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-11",
@@ -2526,7 +2859,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.6
+      "seconds": 10.6,
+      "pages_on_target": [
+        6,
+        7,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-12",
@@ -2546,7 +2885,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.0
+      "seconds": 9.0,
+      "pages_on_target": [
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-13",
@@ -2566,7 +2909,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.2
+      "seconds": 8.2,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-14",
@@ -2586,7 +2933,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.6
+      "seconds": 5.6,
+      "pages_on_target": [
+        10
+      ],
+      "pages_off_target": []
     },
     {
       "id": "cip-15",

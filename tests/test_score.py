@@ -128,3 +128,47 @@ class ScoreTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MetricsTests(unittest.TestCase):
+    def row(self, qid, answer, citations=(), refused=False, seconds=5.0):
+        q = QUESTIONS[qid]
+        norm = [{"document": c["documentTitle"], "start_page": c["startPage"], "end_page": c["endPage"], "cited_text": c["citedText"]} for c in citations]
+        failures = score.score(q, answer, norm, refused, True, MANUALS)
+        return {"id": qid, "category": q["category"], "answer": answer, "citations": norm, "refused": refused, "complete": True, "failures": failures, "passed": not failures, "seconds": seconds}
+
+    def test_page_targets_split_expected_acceptable_and_other(self):
+        q = QUESTIONS["air-01"]  # expected 18, acceptable includes 6
+        on, off = score.page_targets(q, [{"start_page": 18, "end_page": 19}, {"start_page": 6, "end_page": 7}, {"start_page": 30, "end_page": 31}])
+        self.assertEqual((on, off), ([6, 18], [30]))
+
+    def test_citation_precision_averages_per_answer(self):
+        rows = [
+            self.row("air-06", "48 fl oz (1.4 L).", [cite(8), cite(2)]),          # 2 of 2 on target
+            self.row("air-03", "15 A.", [cite(14), cite(30)]),                     # 1 of 2 on target
+        ]
+        m = score.metrics(rows, list(QUESTIONS.values()))
+        self.assertEqual(m["citation_precision"]["value"], 0.75)
+        self.assertEqual(m["citation_precision"]["pages_cited"], 4)
+        self.assertEqual(m["citation_hit_rate"]["value"], 1.0)
+
+    def test_refusal_rates_count_both_directions(self):
+        rows = [
+            self.row("ref-01", score.REFUSAL, refused=True),
+            self.row("air-06", score.REFUSAL, refused=True),
+            self.row("air-03", "15 A.", [cite(14)]),
+        ]
+        m = score.metrics(rows, list(QUESTIONS.values()))
+        self.assertEqual(m["abstention_rate"]["value"], 1.0)
+        self.assertEqual(m["false_refusal_rate"]["value"], 0.5)
+
+    def test_latency_percentiles(self):
+        self.assertEqual(score.percentile([1, 2, 3, 4], 0.5), 2)
+        self.assertEqual(score.percentile([5, 1, 9], 0.95), 9)
+        self.assertIsNone(score.percentile([], 0.5))
+
+    def test_every_cited_question_has_acceptable_pages_field(self):
+        for q in QUESTIONS.values():
+            if q["category"] in score.CITED:
+                self.assertIn("acceptable_pdf_pages", q, q["id"])
+                self.assertFalse(set(q["acceptable_pdf_pages"]) & set(q["expected_pdf_pages"]), q["id"])

@@ -26,6 +26,53 @@
       "total": 9
     }
   },
+  "metrics": {
+    "citation_precision": {
+      "value": 0.991,
+      "pages_on_target": 69,
+      "pages_cited": 70,
+      "answers": 54
+    },
+    "citation_hit_rate": {
+      "value": 1.0,
+      "hits": 54,
+      "answers": 54
+    },
+    "exact_value_rate": {
+      "value": 1.0,
+      "exact": 29,
+      "answers": 29
+    },
+    "prerequisite_first": {
+      "value": 0.778,
+      "first": 7,
+      "answers": 9
+    },
+    "abstention_rate": {
+      "value": 1.0,
+      "refused": 8,
+      "answers": 8
+    },
+    "false_refusal_rate": {
+      "value": 0.0,
+      "refused": 0,
+      "answers": 63
+    },
+    "clarification_rate": {
+      "value": 0.889,
+      "clarified": 8,
+      "answers": 9
+    },
+    "latency_s": {
+      "p50": 4.4,
+      "p95": 13.1,
+      "answers": 71
+    },
+    "not_rule_checkable": [
+      "faithfulness",
+      "completeness"
+    ]
+  },
   "results": [
     {
       "id": "air-01",
@@ -69,7 +116,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 13.1
+      "seconds": 13.1,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-02",
@@ -89,7 +140,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.3
+      "seconds": 5.3,
+      "pages_on_target": [
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-03",
@@ -115,7 +170,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.2
+      "seconds": 9.2,
+      "pages_on_target": [
+        14
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-04",
@@ -141,7 +200,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.8
+      "seconds": 5.8,
+      "pages_on_target": [
+        14
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-05",
@@ -161,7 +224,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.1
+      "seconds": 8.1,
+      "pages_on_target": [
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-06",
@@ -181,7 +248,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.2
+      "seconds": 3.2,
+      "pages_on_target": [
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-07",
@@ -219,7 +290,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.2
+      "seconds": 4.2,
+      "pages_on_target": [
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-08",
@@ -245,7 +320,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.8
+      "seconds": 4.8,
+      "pages_on_target": [
+        20,
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-09",
@@ -283,7 +363,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.0
+      "seconds": 8.0,
+      "pages_on_target": [
+        6,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-10",
@@ -309,7 +394,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.3
+      "seconds": 3.3,
+      "pages_on_target": [
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-11",
@@ -335,7 +424,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.4
+      "seconds": 4.4,
+      "pages_on_target": [
+        20,
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-12",
@@ -355,7 +449,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.8
+      "seconds": 2.8,
+      "pages_on_target": [
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-13",
@@ -411,7 +509,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 7.7
+      "seconds": 7.7,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-14",
@@ -437,7 +539,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.7
+      "seconds": 2.7,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-15",
@@ -463,7 +569,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "air-16",
@@ -537,7 +647,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 14.2
+      "seconds": 14.2,
+      "pages_on_target": [
+        20,
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-01",
@@ -557,7 +672,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.8
+      "seconds": 5.8,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-02",
@@ -619,7 +738,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 7.1
+      "seconds": 7.1,
+      "pages_on_target": [
+        6,
+        17,
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-03",
@@ -639,7 +764,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.5
+      "seconds": 6.5,
+      "pages_on_target": [
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-04",
@@ -659,7 +788,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.5
+      "seconds": 2.5,
+      "pages_on_target": [
+        9
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-05",
@@ -679,7 +812,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.8
+      "seconds": 2.8,
+      "pages_on_target": [
+        10
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-06",
@@ -699,7 +836,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.5
+      "seconds": 2.5,
+      "pages_on_target": [
+        21
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-07",
@@ -719,7 +860,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.6
+      "seconds": 2.6,
+      "pages_on_target": [
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-08",
@@ -751,7 +896,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.5
+      "seconds": 5.5,
+      "pages_on_target": [
+        17,
+        31
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-09",
@@ -789,7 +939,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 5.2
+      "seconds": 5.2,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-10",
@@ -851,7 +1005,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 12.9
+      "seconds": 12.9,
+      "pages_on_target": [
+        27,
+        28
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-11",
@@ -883,7 +1042,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.8
+      "seconds": 4.8,
+      "pages_on_target": [
+        27,
+        29
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-12",
@@ -909,7 +1073,13 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 11.7
+      "seconds": 11.7,
+      "pages_on_target": [
+        24
+      ],
+      "pages_off_target": [
+        9
+      ]
     },
     {
       "id": "arc-13",
@@ -929,7 +1099,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.6
+      "seconds": 2.6,
+      "pages_on_target": [
+        11
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-14",
@@ -949,7 +1123,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "pages_on_target": [
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-15",
@@ -981,7 +1159,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.8
+      "seconds": 10.8,
+      "pages_on_target": [
+        6
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-16",
@@ -1001,7 +1183,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.2
+      "seconds": 8.2,
+      "pages_on_target": [
+        27
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-17",
@@ -1023,7 +1209,11 @@
         "Missing: 20 A"
       ],
       "passed": false,
-      "seconds": 7.4
+      "seconds": 7.4,
+      "pages_on_target": [
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "arc-18",
@@ -1043,7 +1233,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.1
+      "seconds": 3.1,
+      "pages_on_target": [
+        17
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-01",
@@ -1153,7 +1347,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 14.3
+      "seconds": 14.3,
+      "pages_on_target": [
+        15,
+        16
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-02",
@@ -1211,7 +1410,12 @@
         "Prerequisite after the steps: key to OFF"
       ],
       "passed": false,
-      "seconds": 15.3
+      "seconds": 15.3,
+      "pages_on_target": [
+        7,
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-03",
@@ -1273,7 +1477,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 9.3
+      "seconds": 9.3,
+      "pages_on_target": [
+        7,
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-04",
@@ -1299,7 +1508,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 12.1
+      "seconds": 12.1,
+      "pages_on_target": [
+        6,
+        8
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-05",
@@ -1325,7 +1539,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.0
+      "seconds": 4.0,
+      "pages_on_target": [
+        9
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-06",
@@ -1345,7 +1563,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 2.8
+      "seconds": 2.8,
+      "pages_on_target": [
+        26
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-07",
@@ -1377,7 +1599,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.3
+      "seconds": 3.3,
+      "pages_on_target": [
+        18
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-08",
@@ -1403,7 +1629,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.2
+      "seconds": 3.2,
+      "pages_on_target": [
+        29
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-09",
@@ -1435,7 +1665,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 10.8
+      "seconds": 10.8,
+      "pages_on_target": [
+        12
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-10",
@@ -1461,7 +1695,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 4.2
+      "seconds": 4.2,
+      "pages_on_target": [
+        18,
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-11",
@@ -1513,7 +1752,11 @@
         "Prerequisite after the steps: disconnecting the battery"
       ],
       "passed": false,
-      "seconds": 5.5
+      "seconds": 5.5,
+      "pages_on_target": [
+        19
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-12",
@@ -1581,7 +1824,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.2
+      "seconds": 8.2,
+      "pages_on_target": [
+        28
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-13",
@@ -1601,7 +1848,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.0
+      "seconds": 3.0,
+      "pages_on_target": [
+        23
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-14",
@@ -1627,7 +1878,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.0
+      "seconds": 8.0,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-15",
@@ -1653,7 +1908,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.3
+      "seconds": 8.3,
+      "pages_on_target": [
+        25
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-16",
@@ -1679,7 +1938,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 6.3
+      "seconds": 6.3,
+      "pages_on_target": [
+        32
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-17",
@@ -1699,7 +1962,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 8.2
+      "seconds": 8.2,
+      "pages_on_target": [
+        6
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-18",
@@ -1725,7 +1992,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.6
+      "seconds": 3.6,
+      "pages_on_target": [
+        20
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-19",
@@ -1745,7 +2016,11 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.6
+      "seconds": 3.6,
+      "pages_on_target": [
+        22
+      ],
+      "pages_off_target": []
     },
     {
       "id": "lift-20",
@@ -1771,7 +2046,12 @@
       "complete": true,
       "failures": [],
       "passed": true,
-      "seconds": 3.1
+      "seconds": 3.1,
+      "pages_on_target": [
+        14,
+        26
+      ],
+      "pages_off_target": []
     },
     {
       "id": "amb-01",
