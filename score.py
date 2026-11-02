@@ -25,7 +25,7 @@ Each question is scored according to its category:
                        warning above the list or in step 1), or before the first must_include match when there is no list
   must_refuse          the exact refusal sentence and no citations
   ambiguous_equipment  not refused, and by expected_clarification:
-                         machine        the exact sentence asking which of the three machines is meant (the default), no citations
+                         machine        the exact sentence asking which of the four machines is meant (the default), no citations
                          one_at_a_time  the exact sentence asking for one machine at a time, no citations
                          model          one short question (under 250 characters) naming every must_include model and
                                         containing none of the must_exclude values; it may cite the table it refers to
@@ -47,7 +47,7 @@ import urllib.parse
 import urllib.request
 
 REFUSAL = "I don't know. That isn't in the manuals I have."
-MACHINES = "the ArcLine 215 welder, the AirLine C60 compressor or the LiftLine EPT-45 pallet truck"
+MACHINES = "the ArcLine 215 welder, the AirLine C60 compressor, the LiftLine EPT-45 pallet truck or the HygienLine CIP-400 CIP skid"
 CLARIFY_MACHINE = f"Which machine do you mean: {MACHINES}?"
 CLARIFY_ONE_AT_A_TIME = f"Ask about one machine at a time: {MACHINES}."
 CLARIFICATIONS = {"machine": CLARIFY_MACHINE, "one_at_a_time": CLARIFY_ONE_AT_A_TIME, "model": None}
@@ -340,7 +340,7 @@ def main():
         lines.append("None.")
     for r in failures:
         lines.append(f"- `{r['id']}` ({r['category']}): " + "; ".join(r["failures"]))
-    lines += ["", "A passing score measures citation, refusal, numeric fidelity and clarification on these three manuals only. It does not certify answers as safe or complete and is not a release criterion for any plant. Consult the original manual and qualified personnel before operating equipment.", ""]
+    lines += ["", "A passing score measures citation, refusal, numeric fidelity and clarification on these four manuals only. It does not certify answers as safe or complete and is not a release criterion for any plant. Consult the original manual and qualified personnel before operating equipment.", ""]
     with open(md_path, "w", encoding="utf-8") as handle:
         handle.write("\n".join(lines))
     print(f"\n{passed} of {len(results)} passed. Wrote {json_path} and {md_path}", file=sys.stderr)
