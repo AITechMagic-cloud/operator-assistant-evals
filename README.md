@@ -1,12 +1,12 @@
 # Operator assistant evals
 
-A test set and scorer for the AI Tech Magic operator-assistant demo at https://demo.aitechmagic.com. The demo answers questions from three equipment manuals and cites the PDF page behind every answer. This repository holds the questions, the expected pages and values checked by hand against the PDFs, a scorer that runs them against the demo, and the dated results.
+A test set and scorer for the AI Tech Magic operator-assistant demo at https://demo.aitechmagic.com. The demo answers questions from four equipment manuals and cites the PDF page behind every answer. This repository holds the questions, the expected pages and values checked by hand against the PDFs, a scorer that runs them against the demo, and the dated results.
 
 The manuals are original demonstration documents written by AI Tech Magic for a manufacturer that does not exist, Brennvik Industrial Equipment: a MIG and flux-cored welder, a two-stage air compressor and an electric pallet truck. They were written to read like real owner's manuals so that the test set can check real behaviours, and the fictional manufacturer means no vendor's document is quoted or republished here.
 
 ## What the set tests
 
-The set covers three manuals and 71 questions. It measures four things on these documents only:
+The set covers four manuals and 89 questions. The HygienLine CIP-400 clean-in-place skid manual and its 18 questions were added on 2 November 2026; earlier results cover the first three manuals and 71 questions. It measures four things on these documents only:
 
 - Citation: the answer cites the PDF page that holds the fact.
 - Refusal: when the manual does not cover the question, the assistant says exactly "I don't know. That isn't in the manuals I have." and cites nothing.
@@ -25,7 +25,7 @@ Questions fall into five categories:
 
 The clarification cases come in three kinds, set by `expected_clarification`:
 
-- `machine`: no machine is named. The demo answers with one exact sentence asking which of the three machines is meant. This includes a question about another brand with no Brennvik machine named; the demo does not guess which manual might be closest.
+- `machine`: no machine is named. The demo answers with one exact sentence asking which of the four machines is meant. This includes a question about another brand with no Brennvik machine named; the demo does not guess which manual might be closest.
 - `one_at_a_time`: two machines are named. Each request carries one manual, so the demo answers with one exact sentence asking for one machine at a time.
 - `model`: one machine is named, but the manual gives the value or procedure separately by model (the compressor's breaker size, the pallet truck's charging procedure, the welder's breaker by input voltage). The assistant must ask one short question that names every model in `must_include` and contains none of the values in `must_exclude`. It may cite the table it is asking about; the two exact sentences above carry no citations.
 
@@ -33,8 +33,8 @@ Every `must_refuse` question names one Brennvik machine, so the request reaches 
 
 ## Files
 
-- `manuals.json`: the three manuals with document number, model variants, PDF page count, size and SHA-256. The PDFs are not committed; the demo serves them at the `demo_url` of each entry without a password, and the hashes let you confirm you have the same files the demo uses.
-- `questions.jsonl`: one record per question with `id`, `manual`, `category`, `question`, `expected_pdf_pages` (PDF page positions including the cover; the printed page number is the same on all three manuals), `expected_value` for numeric items copied exactly from the source, optional `must_include` and `must_exclude` terms, optional `prerequisite_terms` for safety items, `expected_clarification` for clarification items, and `notes` recording where the fact sits in the manual.
+- `manuals.json`: the four manuals with document number, model variants, PDF page count, size and SHA-256. The PDFs are not committed; the demo serves them at the `demo_url` of each entry without a password, and the hashes let you confirm you have the same files the demo uses.
+- `questions.jsonl`: one record per question with `id`, `manual`, `category`, `question`, `expected_pdf_pages` (PDF page positions including the cover; the printed page number is the same on all four manuals), `expected_value` for numeric items copied exactly from the source, optional `must_include` and `must_exclude` terms, optional `prerequisite_terms` for safety items, `expected_clarification` for clarification items, and `notes` recording where the fact sits in the manual.
 - `score.py`: posts each question to the demo, scores the response and writes the results. Python 3, standard library only.
 - `tests/test_score.py`: unit tests for the scoring rules against sample responses. Run `python -m unittest discover -s tests`.
 - `results/`: one JSON and one Markdown file per dated run, with the demo commit recorded. Real numbers, including failures.
@@ -53,6 +53,8 @@ python score.py --only air-01,ref-01                # a subset
 
 The first run, 21 October 2026 against demo commit `e249db4`, passed 66 of 71. Its five failures were the scorer's rules, not the demo's answers: a receptacle question that also demanded the circuit rating, two correct procedures marked down because a warning above the list contained a listed term, a model clarification that cited the table it asked about, and a clarification that named a charger part number while describing the models. The rules were adjusted afterwards as described above; the 21 October files stand as produced and the next run is a new dated file.
 
+The second run, 2 November 2026, covers four manuals and 89 questions and passed 88 of 89. It ran against a local copy of the demo at commit `ad0e473` with its default model, before that commit was deployed. The one failure, `cip-04`, gave "35 m³/h at 4.5 bar" as page 27 prints it in the duty-point row, where the item asked for "4.5 bar g" from page 8. The term was loosened to "4.5 bar" afterwards; the 2 November files stand as produced.
+
 The scorer logs in once with the password, then posts each question to `/api/ask` and scores the reply. The demo sets a secure session cookie, so a password-gated endpoint must be reached over HTTPS; for a local copy of the demo over plain HTTP, run it with `DEMO_PASSWORD` empty, which disables the gate, and leave `EVAL_PASSWORD` unset. It writes `results/YYYY-MM-DD.json` with every answer, citation and failure reason, and `results/YYYY-MM-DD.md` with the counts and the failures. A run is published as it happened. Failed items stay in the file and the run is not repeated until it passes.
 
 The demo returns `{"segments": [{"text", "citations": [{"documentTitle", "startPage", "endPage", "citedText"}]}], "stopReason"}`. The scorer also accepts a flat `{"answer", "citations": [{"document", "start_page", "end_page", "cited_text"}], "refused"}` shape, so it can run against another endpoint that answers from the same manuals. The two exact clarification sentences and the refusal sentence are the demo's; another endpoint has to use the same wording to pass those items.
@@ -61,7 +63,7 @@ Terms in `must_include`, `must_exclude` and `prerequisite_terms` are matched cas
 
 ## What a score does not prove
 
-A passing score does not certify answers as safe or complete, and it is not a release criterion for any plant. The set checks known behaviours on these three documents: the right page, the exact value, a refusal where the manual is silent, and a question where the machine or model is unnamed. It does not establish semantic correctness for arbitrary questions, and it says nothing about other documents, other equipment or other deployments.
+A passing score does not certify answers as safe or complete, and it is not a release criterion for any plant. The set checks known behaviours on these four documents: the right page, the exact value, a refusal where the manual is silent, and a question where the machine or model is unnamed. It does not establish semantic correctness for arbitrary questions, and it says nothing about other documents, other equipment or other deployments.
 
 Model responses vary between runs. The dated results record one run against one demo commit.
 
@@ -69,7 +71,7 @@ The manuals describe equipment that does not exist. Nothing in them is an operat
 
 ## Sources
 
-All three manuals were written by AI Tech Magic as demonstration documents. Brennvik Industrial Equipment, its products, part numbers, addresses and contact details are fictional. Each PDF says so on its cover.
+All four manuals were written by AI Tech Magic as demonstration documents. Brennvik Industrial Equipment, its products, part numbers, addresses and contact details are fictional. Each PDF says so on its cover.
 
 ## License
 
