@@ -1,10 +1,10 @@
 {
-  "note": "The four equipment manuals used by the AI Tech Magic operator-assistant demo. They are original fictional demonstration documents written by AI Tech Magic for a manufacturer that does not exist, Brennvik Industrial Equipment. The PDFs are not committed here; the demo serves them at demo_url without a password. pdf_pages counts PDF page positions including the cover; the printed page number equals the PDF position on all four. sha256 and bytes are of the PDF file as bundled in the demo.",
+  "note": "The four equipment manuals used by the AI Tech Magic operator-assistant demo. They were written by AI Tech Magic for demo purposes, for a manufacturer that does not exist, Brennvik Industrial Equipment. The PDFs are not committed here; the demo serves them at demo_url without a password. pdf_pages counts PDF page positions including the cover; the printed page number equals the PDF position on all four. sha256 and bytes are of the PDF file the demo serves from commit 30c1b5f onward, which includes the 2026-11-02 run. earlier_files lists the files used by the 2026-10-21 run at demo commit e249db4; they differ from the current files only in notice wording and the demo address label, with the same pages and values.",
   "manuals": [
     {
       "id": "arcline-215",
       "title": "ArcLine 215 welder manual",
-      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "vendor": "Brennvik Industrial Equipment (for demo purposes only)",
       "model": "ArcLine 215 MIG / flux-cored welder",
       "document_number": "BIE-OM-2150 Rev. C",
       "variants": [
@@ -15,13 +15,21 @@
       "demo_url": "https://demo.aitechmagic.com/manuals/arcline_215.pdf",
       "pdf_pages": 44,
       "printed_page_offset": 0,
-      "sha256": "8ae77e4ce3567ae9cfc138c10c32b8de7a009a4275587df71214e2d7dda64d4d",
-      "bytes": 205797
+      "sha256": "b4fed8c7fa52a9f2d4347df3d261f57d1f9bb29e418c913e8fa693715a7e53ca",
+      "bytes": 895990,
+      "earlier_files": [
+        {
+          "demo_commit": "e249db4",
+          "used_by": "results/2026-10-21",
+          "sha256": "8ae77e4ce3567ae9cfc138c10c32b8de7a009a4275587df71214e2d7dda64d4d",
+          "bytes": 205797
+        }
+      ]
     },
     {
       "id": "airline-c60",
       "title": "AirLine C60 compressor manual",
-      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "vendor": "Brennvik Industrial Equipment (for demo purposes only)",
       "model": "AirLine C60 two-stage 60 gal compressor",
       "document_number": "BIE-OM-6060 Rev. B",
       "variants": [
@@ -32,13 +40,21 @@
       "demo_url": "https://demo.aitechmagic.com/manuals/airline_c60.pdf",
       "pdf_pages": 41,
       "printed_page_offset": 0,
-      "sha256": "6dd53476f956e922fe6b26c24523ed15b3ef1006ca185663445788d87f255697",
-      "bytes": 197126
+      "sha256": "e2bc479303967bd9a2ef7cd774a68d00f9559c07d02f842846bb294865174f9f",
+      "bytes": 888626,
+      "earlier_files": [
+        {
+          "demo_commit": "e249db4",
+          "used_by": "results/2026-10-21",
+          "sha256": "6dd53476f956e922fe6b26c24523ed15b3ef1006ca185663445788d87f255697",
+          "bytes": 197126
+        }
+      ]
     },
     {
       "id": "liftline-ept45",
       "title": "LiftLine EPT-45 pallet truck manual",
-      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "vendor": "Brennvik Industrial Equipment (for demo purposes only)",
       "model": "LiftLine EPT-45 electric pallet truck",
       "document_number": "BIE-OM-4545 Rev. A",
       "variants": [
@@ -49,13 +65,21 @@
       "demo_url": "https://demo.aitechmagic.com/manuals/liftline_ept45.pdf",
       "pdf_pages": 41,
       "printed_page_offset": 0,
-      "sha256": "184ec644c9de61b518c57f865ea765658a8530598985fd6c50a4f7939fc881ed",
-      "bytes": 201594
+      "sha256": "1c9451c6ba97a8005ea50e6a03714d57ec54caf1600aafddda25f410257201a7",
+      "bytes": 892036,
+      "earlier_files": [
+        {
+          "demo_commit": "e249db4",
+          "used_by": "results/2026-10-21",
+          "sha256": "184ec644c9de61b518c57f865ea765658a8530598985fd6c50a4f7939fc881ed",
+          "bytes": 201594
+        }
+      ]
     },
     {
       "id": "hygienline-cip400",
       "title": "HygienLine CIP-400 CIP skid manual",
-      "vendor": "Brennvik Industrial Equipment (fictional)",
+      "vendor": "Brennvik Industrial Equipment (for demo purposes only)",
       "model": "HygienLine CIP-400 clean-in-place skid",
       "document_number": "BIE-OM-4400 Rev. B",
       "variants": [
