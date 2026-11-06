@@ -199,7 +199,7 @@ What each one needs:
 
 Two metrics need a reader: faithfulness (every claim in the answer supported by the cited page) and completeness (every item of the reference answer present). The set does not hold written reference answers yet. The expected pages, values and required terms are where they start.
 
-The plan: mark all 89 stored answers by hand, once, and publish those marks as human-judged. They become the gold set. A model judge is reported only after its marks agree with the human marks on the same answers, measured as Cohen's kappa, not percent agreement. A judged number is always labelled judged, never rule-checked.
+The plan: mark the 68 cited answers in the 2 November run by hand, once, and publish those marks as human-judged. The 10 refusals and 11 clarifications are fixed sentences or short questions with no claims to judge. The marks become the gold set. A model judge is reported only after its marks agree with the human marks on the same answers, measured as Cohen's kappa, not percent agreement. A judged number is always labelled judged, never rule-checked.
 
 ### Not measured, and why
 
